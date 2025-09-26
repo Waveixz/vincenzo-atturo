@@ -1,0 +1,81 @@
+/* Theme: dark tech · green glow · card-like UI */
+:root{
+  --bg:#0b0f0c;
+  --card:#111614;
+  --muted:#9fb3a8;
+  --text:#e8edea;
+  --accent:#27c17a;
+  --accent-2:#2ee08b;
+  --line:rgba(39,193,122,0.25);
+  --radius:18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
+  --glow: 0 0 30px rgba(39,193,122,.25);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";background:radial-gradient(1200px 600px at 90% -10%, rgba(39,193,122,.25), transparent 60%), var(--bg);color:var(--text);}
+a{color:var(--accent);text-decoration:none}
+.container{width:min(1100px, 92%);margin-inline:auto}
+
+.nav{position:sticky;top:0;background:rgba(11,15,12,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg, var(--accent), var(--accent-2));color:#06130d;font-weight:900;box-shadow:var(--glow)}
+.brand-text{font-weight:700;letter-spacing:.4px}
+.menu{display:flex;gap:18px;align-items:center}
+.menu a{opacity:.9}
+.btn{display:inline-block;padding:10px 16px;border-radius:12px;background:linear-gradient(135deg, var(--accent), var(--accent-2));color:#062015;font-weight:700;box-shadow:var(--glow)}
+.btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.btn.small{padding:8px 12px;font-size:.9rem}
+.hamburger{display:none;background:none;border:0;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+
+.hero{padding:64px 0;background:linear-gradient(180deg, rgba(39,193,122,.08), transparent) }
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero-text h1{font-size:clamp(40px, 6vw, 64px);margin:0 0 8px}
+.accent{background:linear-gradient(135deg, var(--accent), var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{margin:0 0 10px;color:#cfe4da;font-weight:600;letter-spacing:.6px}
+.tagline{color:var(--muted);margin:0 0 16px}
+.cta{display:flex;gap:12px;margin:18px 0}
+.quick{list-style:none;padding:0;margin:12px 0 0;color:var(--muted)}
+.quick li{margin:4px 0}
+.hero-media{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero-media img{display:block;width:100%;height:auto}
+.hero-media figcaption{font-size:.85rem;color:var(--muted);padding:8px 10px;background:rgba(0,0,0,.25)}
+
+.section{padding:56px 0}
+.section.alt{background:linear-gradient(180deg, transparent, rgba(39,193,122,.06))}
+h2{font-size:clamp(26px, 3.6vw, 34px);margin:0 0 18px}
+
+.grid-4{display:grid;grid-template-columns:repeat(4, 1fr);gap:16px}
+.card{background:var(--card);padding:18px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow)}
+.card .icon{font-size:24px;margin-bottom:8px}
+
+.timeline{display:grid;gap:18px}
+.item{padding:16px;border-radius:var(--radius);border:1px dashed var(--line);background:rgba(255,255,255,.02)}
+.pill{font-size:.85rem;background:rgba(39,193,122,.15);border:1px solid var(--line);padding:4px 8px;border-radius:20px;margin-left:8px;color:#b7ffe1}
+
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skills h3{margin-top:0}
+.skills ul{margin:8px 0 0 18px;color:var(--muted)}
+
+.contact{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:center}
+.card-preview{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+
+.footer{border-top:1px solid rgba(255,255,255,.06);padding:20px 0;margin-top:24px}
+.foot{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.95rem}
+
+/* Responsive */
+@media (max-width: 900px){
+  .menu{display:none;position:absolute;right:4%;top:60px;background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--line);flex-direction:column;box-shadow:var(--shadow)}
+  .menu.open{display:flex}
+  .hamburger{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width: 560px){
+  .grid-4{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+}
