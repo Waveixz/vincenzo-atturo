@@ -17,7 +17,6 @@
 }
 
 *{ box-sizing: border-box; }
-
 html,body{
   margin:0; padding:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -41,7 +40,10 @@ a:hover, a:focus-visible{ text-decoration: underline; }
   background: rgba(11,15,12,.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,255,255,.06);
+  opacity: 0;                    /* invisibile all'apertura */
+  transition: opacity .3s ease;  /* apparizione fluida */
 }
+.site-header.visible{ opacity: 1; }  /* aggiunto via JS dopo scroll */
 
 .site-nav{
   display:flex; align-items:center; justify-content:space-between;
@@ -53,30 +55,24 @@ a:hover, a:focus-visible{ text-decoration: underline; }
   display:flex; gap:18px; align-items:center;
   transition: opacity .16s ease;
 }
-.menu a{
-  color: var(--text); opacity:.95;
-}
-.menu a:hover, .menu a:focus-visible{
-  opacity:1; text-decoration: underline;
-}
+.menu a{ color: var(--text); opacity:.95; }
+.menu a:hover, .menu a:focus-visible{ opacity:1; text-decoration: underline; }
 
 /* ===========================
-   Bottone tondo con tre linette (mobile)
+   Bottone tondo (mobile) — SEMPRE VISIBILE su mobile
    =========================== */
 .menu-toggle{
   display:none; /* visibile sotto i 900px */
   justify-content:center; align-items:center;
   width:48px; height:48px; border-radius:50%;
-  border:1px solid var(--accent);
-  background: var(--card);
+  border:1px solid var(--accent-2);            /* bordo più visibile */
+  background: rgba(17,22,20,.85);              /* fondo leggermente più chiaro */
   cursor:pointer;
   transition: background .3s ease, transform .3s ease, box-shadow .3s ease, border .3s ease;
   box-shadow: var(--glow);
 }
-
-/* Glow verde in hover o attivo */
 .menu-toggle:hover{
-  background: rgba(39,193,122,0.1);
+  background: rgba(39,193,122,0.10);
   box-shadow: 0 0 40px rgba(46,224,139,.5);
   border-color: var(--accent-2);
 }
@@ -85,10 +81,7 @@ a:hover, a:focus-visible{ text-decoration: underline; }
   border-color: var(--accent-2);
   background: rgba(39,193,122,0.12);
 }
-.menu-toggle:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:2px;
-}
+.menu-toggle:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
 /* Linette interne */
 .menu-toggle .bar{
@@ -96,7 +89,6 @@ a:hover, a:focus-visible{ text-decoration: underline; }
   margin:3px 0;
   transition: transform .25s ease, opacity .25s ease;
 }
-
 /* Animazione a X */
 .menu-toggle[aria-expanded="true"] .bar:nth-child(1){ transform: translateY(5px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .bar:nth-child(2){ opacity:0; }
@@ -107,15 +99,11 @@ a:hover, a:focus-visible{ text-decoration: underline; }
    =========================== */
 
 .hero{
-  padding:64px 0;
+  padding:80px 0 64px; /* +20px top per staccare dallo sticky header */
   background: linear-gradient(180deg, rgba(39,193,122,.08), transparent);
 }
-.hero-grid{
-  display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center;
-}
-.hero-text h1{
-  font-size: clamp(40px, 6vw, 64px); margin:0 0 8px;
-}
+.hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center; }
+.hero-text h1{ font-size: clamp(40px, 6vw, 64px); margin:0 0 8px; }
 .accent{
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -133,10 +121,7 @@ a:hover, a:focus-visible{ text-decoration: underline; }
   box-shadow: var(--shadow);
 }
 .hero-media img{ display:block; width:100%; height:auto; object-fit:cover; }
-.hero-media figcaption{
-  font-size:.85rem; color:var(--muted);
-  padding:8px 10px; background:rgba(0,0,0,.25);
-}
+.hero-media figcaption{ font-size:.85rem; color:var(--muted); padding:8px 10px; background:rgba(0,0,0,.25); }
 
 /* ===========================
    Sections & Cards
@@ -156,116 +141,8 @@ h2{ font-size: clamp(26px, 3.6vw, 34px); margin:0 0 18px; }
   box-shadow: var(--shadow);
   transition: box-shadow .3s ease, transform .3s ease;
 }
-.card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 0 25px rgba(39,193,122,.25);
-}
+.card:hover{ transform: translateY(-4px); box-shadow: 0 0 25px rgba(39,193,122,.25); }
 .card .icon{ font-size:24px; margin-bottom:8px; }
 
 /* Timeline */
 .timeline{ display:grid; gap:18px; }
-.item{
-  padding:16px; border-radius: var(--radius);
-  border:1px dashed var(--line);
-  background: rgba(255,255,255,.02);
-}
-.pill{
-  font-size:.85rem;
-  background: rgba(39,193,122,.15);
-  border:1px solid var(--line);
-  padding:4px 8px; border-radius:20px; margin-left:8px; color:#b7ffe1;
-}
-
-/* Skills */
-.skills{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.skills h3{ margin-top:0; }
-.skills ul{ margin:8px 0 0 18px; color:var(--muted); }
-
-/* Contatti */
-.contact{
-  display:grid; grid-template-columns:1fr .8fr;
-  gap:24px; align-items:center;
-}
-.card-preview{
-  border-radius: var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-/* Buttons */
-.btn{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color:#062015; font-weight:700;
-  box-shadow: var(--glow);
-  transition: box-shadow .3s ease, transform .3s ease;
-}
-.btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(46,224,139,.45);
-}
-.btn.ghost{ background:transparent; border:1px solid var(--accent); color:var(--accent); }
-.btn.small{ padding:8px 12px; font-size:.9rem; }
-.btn:focus-visible{ box-shadow: 0 0 0 3px rgba(46,224,139,.5); }
-.btn.ghost:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
-
-/* ===========================
-   Footer
-   =========================== */
-
-.footer{
-  border-top:1px solid rgba(255,255,255,.06);
-  padding:20px 0; margin-top:24px;
-}
-.foot{
-  display:flex; justify-content:space-between; gap:12px;
-  color:var(--muted); font-size:.95rem;
-}
-
-/* ===========================
-   Accessibilità & UX
-   =========================== */
-
-[id]{ scroll-margin-top: 80px; } /* per sticky header */
-:focus-visible{ outline:3px solid currentColor; outline-offset:2px; }
-
-@media (prefers-reduced-motion: reduce){
-  *{ animation:none!important; transition:none!important; }
-}
-
-@media (forced-colors: active){
-  .btn, .btn.ghost, .menu a, a{ forced-color-adjust:auto; }
-  .btn{ border:1px solid ButtonText; }
-  .btn.ghost{ border:1px solid LinkText; }
-}
-
-/* ===========================
-   Responsive
-   =========================== */
-
-@media (max-width: 900px){
-  .menu-toggle{ display:flex; } /* mostra bottone tondo */
-  .menu{
-    display:none; position:absolute; right:4%; top:60px;
-    background: var(--card);
-    padding:12px; border-radius:12px; border:1px solid var(--line);
-    flex-direction:column; box-shadow: var(--shadow);
-    width:min(260px,92%);
-    opacity:0; pointer-events:none; transition:opacity .3s ease;
-  }
-  .menu.open{ display:flex; opacity:1; pointer-events:auto; }
-  .menu a{ padding:10px 8px; border-radius:10px; }
-
-  .hero-grid{ grid-template-columns:1fr; gap:20px; }
-  .grid-4{ grid-template-columns:1fr 1fr; }
-  .skills{ grid-template-columns:1fr 1fr; }
-  .contact{ grid-template-columns:1fr; }
-}
-
-@media (max-width: 560px){
-  .grid-4{ grid-template-columns:1fr; }
-  .skills{ grid-template-columns:1fr; }
-}
