@@ -79,3 +79,74 @@ h2{font-size:clamp(26px, 3.6vw, 34px);margin:0 0 18px}
   .grid-4{grid-template-columns:1fr}
   .skills{grid-template-columns:1fr}
 }
+/* --- A11y: focus, skip-link, motion, high-contrast --- */
+
+/* Link “salta al contenuto” (richiede <a class="skip-link" href="#main">) */
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+  background:#000; color:#fff; padding:.5rem 1rem; z-index:1000;
+  border-radius:10px;
+}
+.skip-link:focus, .skip-link:focus-visible{ left:0; top:0; }
+
+/* Focus visibile per tutti i controlli */
+:focus-visible{
+  outline:3px solid currentColor;
+  outline-offset:2px;
+}
+
+/* Stati hover/focus su link e menu */
+a:hover, a:focus-visible{ text-decoration: underline; }
+.menu a{ opacity:.95; }
+.menu a:hover, .menu a:focus-visible{ opacity:1; text-decoration: underline; }
+
+/* Bottoni focus e ghost coerenti */
+.btn:focus-visible{ box-shadow: 0 0 0 3px rgba(46,224,139,.5); }
+.btn.ghost:focus-visible{ outline:2px solid var(--accent); }
+
+/* Hamburger: area touch ≥ 44px e stato ARIA */
+.hamburger{
+  width:44px; height:44px; display:none; place-items:center;
+  border-radius:10px;
+}
+.hamburger:focus-visible{ outline:2px solid var(--accent); }
+
+/* Menu mobile (già presente) – aggiungo transizione soft e stato open */
+.menu{ transition: opacity .16s ease; }
+@media (max-width: 900px){
+  .menu{ opacity:0; pointer-events:none; }
+  .menu.open{ opacity:1; pointer-events:auto; }
+}
+
+/* Riduci animazioni se richiesto dall’utente */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* Sticky header + anchor: evita contenuti coperti all’ancora */
+[id]{ scroll-margin-top: 80px; } /* regola 80px ≈ altezza header */
+
+/* Modalità forced-colors (High Contrast su Windows) */
+@media (forced-colors: active){
+  .btn, .btn.ghost, .menu a, a{ forced-color-adjust: auto; }
+  .btn{ border:1px solid ButtonText; }
+  .btn.ghost{ border:1px solid LinkText; }
+}
+
+/* Migliora leggibilità dei testi “muted” su card scura (già ok, qui solo clamp) */
+:root{
+  --text-size: clamp(16px, 1.1vw, 18px);
+}
+body{ font-size: var(--text-size); line-height: 1.55; }
+
+/* Accessibilità form/icone generiche */
+[role="img"][aria-hidden="true"], .icon[aria-hidden="true"]{ pointer-events:none; }
+
+/* Nav sticky (se usi .nav): aumenta contrasto e leggibilità su sfondi complessi */
+.nav{
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+/* Hero media: assicura non deformi in layout strani */
+.hero-media img{ object-fit: cover; }
