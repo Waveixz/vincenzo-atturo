@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Vincenzo Atturo · IT Manager, Sviluppo Digitale & Analisi Dati</title>
   <meta name="description" content="Vincenzo Atturo · IT Manager & Digital Solutions Developer · Sviluppo web, automazioni Python, GIS, analisi e gestione dati. Soluzioni digitali integrate per aziende, enti e professionisti." />
-  <meta name="keywords" content="IT Manager, Sviluppo Web, Consulente Informatico, Digital Solutions, Python, Automazioni, GIS, Analisi Dati, Roma, Italia" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://va-digital.it/" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vincenzo Atturo · IT Manager & Digital Solutions Developer" />
   <meta property="og:description" content="Sviluppo web, automazioni Python, GIS e analisi dati per aziende, enti e professionisti." />
   <meta property="og:image" content="https://va-digital.it/assets/business-card-front.webp" />
-  <meta property="og:url" content="https://va-digital.it" />
+  <meta property="og:url" content="https://va-digital.it/" />
   <meta property="og:site_name" content="Vincenzo Atturo" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vincenzo Atturo · IT Manager & Digital Solutions Developer" />
   <meta name="twitter:description" content="Sviluppo web, automazioni Python, GIS e analisi dati per aziende, enti e professionisti." />
   <meta name="twitter:image" content="https://va-digital.it/assets/business-card-front.webp" />
 
-  <!-- Canonical link -->
-  <link rel="canonical" href="https://va-digital.it" />
+  <!-- Favicon & Manifest -->
+  <link rel="icon" href="/assets/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0b0f0c" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <!-- Preload hero -->
+  <link rel="preload" href="/assets/business-card-front.webp" as="image" imagesrcset="/assets/business-card-front.webp 400w" imagesizes="(max-width:600px) 100vw, 400px">
 
-  <!-- Preload immagine principale -->
-  <link rel="preload" href="assets/business-card-front.webp" as="image">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- CSS principale -->
-<link rel="stylesheet" href="/styles.css">
-
-
-  <!-- Google tag (Analytics) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM9NLKEND"></script>
+  <!-- GA4 + Consent Mode (EU) -->
   <script>
+    // Imposta default "denied" finché non c'è consenso
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted', // opzionale, senza profiling
+      'security_storage': 'granted'
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM9NLKEND"></script>
+  <script>
     gtag('js', new Date());
-    gtag('config', 'G-HHM9NLKEND');
+    // Quando l’utente accetta (col tuo banner CMP), chiama:
+    // gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    gtag('config', 'G-HHM9NLKEND', { anonymize_ip: true });
   </script>
 
-  <!-- Schema.org (struttura dati JSON-LD) -->
+  <!-- JSON-LD: Person + WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Vincenzo Atturo",
-    "url": "https://va-digital.it",
+    "url": "https://va-digital.it/",
     "image": "https://va-digital.it/assets/business-card-front.webp",
     "jobTitle": "IT Manager & Digital Solutions Developer",
     "worksFor": {
       "@type": "Organization",
-      "name": "Freelance / Municipia S.p.A."
+      "name": "VA Digital"
     },
     "sameAs": [
       "https://www.linkedin.com/in/vincenzo-atturo-ixz",
@@ -63,163 +76,202 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "VA Digital",
+    "url": "https://va-digital.it/"
+  }
+  </script>
+
+  <!-- A11y base inlined (vedi anche CSS sotto) -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:0;top:0;background:#000;color:#fff;padding:.5rem 1rem;z-index:1000}
+    :focus-visible{outline:3px solid currentColor;outline-offset:2px}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  </style>
 </head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
 
+  <header role="banner" class="site-header">
+    <nav aria-label="Principale" class="site-nav">
+      <button class="hamburger" aria-label="Apri menu" aria-controls="menu" aria-expanded="false">
+        ☰
+      </button>
+      <ul id="menu" class="menu">
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#esperienza">Esperienza</a></li>
+        <li><a href="#competenze">Competenze</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main id="main" tabindex="-1">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <h1>Vincenzo <span class="accent">Atturo</span></h1>
-            <p class="subtitle">IT Manager &amp; Digital Solutions Developer</p>
-            <p class="tagline">Soluzioni digitali integrate per aziende, enti e professionisti.</p>
-            <div class="cta">
-              <a class="btn" href="#contatti">Contattami</a>
-              <!--<a class="btn ghost" href="assets/Vincenzo_Atturo_CV.pdf" download>Scarica CV</a>-->
-            </div>
-            <ul class="quick">
-              <li>Programmazione Python · Sviluppo Web </li>
-              <li>GIS, QGIS &amp; Dati geospaziali</li>
-              <li>Analisi &amp; Gestione Dati · DataBase</li>
-              <li> · GDPR</li>
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Vincenzo <span class="accent">Atturo</span></h1>
+          <p class="subtitle">IT Manager &amp; Digital Solutions Developer</p>
+          <p class="tagline">Soluzioni digitali integrate per aziende, enti e professionisti.</p>
+          <div class="cta">
+            <a class="btn" href="#contatti">Contattami</a>
+          </div>
+          <ul class="quick">
+            <li>Programmazione Python · Sviluppo Web</li>
+            <li>GIS, QGIS &amp; Dati geospaziali</li>
+            <li>Analisi &amp; Gestione Dati · Database</li>
+            <li>Compliance GDPR &amp; Sicurezza</li>
+          </ul>
+        </div>
+        <figure class="hero-media">
+          <img
+            src="/assets/business-card-front.webp"
+            alt="Biglietto da visita di Vincenzo Atturo"
+            width="400" height="240"
+            fetchpriority="high"
+            decoding="async"
+            loading="eager">
+        </figure>
+      </div>
+    </section>
+
+    <section id="servizi" class="section">
+      <div class="container">
+        <h2>Servizi</h2>
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon" aria-hidden="true">💻</div>
+            <h3>Programmazione Python &amp; Sviluppo Software</h3>
+            <p>Script, automazioni, API, applicazioni desktop e web. Integrazioni con database e flussi informativi.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🌐</div>
+            <h3>Programmazione Web</h3>
+            <p>Siti e Web App con stack moderno. Ottimizzazione performance e accessibilità.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">📊</div>
+            <h3>Analisi &amp; Gestione Dati</h3>
+            <p>SQL, PostgreSQL, MySQL, NoSQL. Pipeline ETL con Python &amp; Pandas e reportistica.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">📍</div>
+            <h3>GIS &amp; GeoData</h3>
+            <p>Rilevazioni geospaziali, lavorazioni su QGIS, bonifica e integrazione dati territoriali.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="esperienza" class="section alt">
+      <div class="container">
+        <h2>Esperienza</h2>
+        <div class="timeline">
+          <article class="item">
+            <h3>SEL - Servizi Enti Locali S.r.l. <span class="pill">Lug 2023 – Presente</span></h3>
+            <p>Contratto PA. Gestione dati, bonifiche e ottimizzazione database; supporto IT, gestione accessi, sicurezza e conformità GDPR. Appalto con <strong>Municipia (Gruppo Engineering)</strong> per il Comune di Ardea: ottimizzazione flussi, <strong>rilevazione e bonifica del territorio con file GIS</strong>, lavorazioni su <strong>QGIS</strong> e governance dei dati.</p>
+          </article>
+          <article class="item">
+            <h3>IT Consultant &amp; Digital Solutions Developer (Freelance) <span class="pill">2023 – Presente</span></h3>
+            <p>Consulenza e sviluppo su misura: sviluppo web, reti, automazioni dati, ottimizzazione processi IT.</p>
+          </article>
+          <article class="item">
+            <h3>Poseidon – Comune di Nettuno (Roma) <span class="pill">2021 – 2023</span></h3>
+            <p>Sviluppo e manutenzione di applicativi web/desktop (HTML, PHP, MySQL, C#). Gestione database e sicurezza.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competenze" class="section">
+      <div class="container">
+        <h2>Competenze</h2>
+        <div class="skills">
+          <div>
+            <h3>Programmazione &amp; Web</h3>
+            <ul>
+              <li>HTML5, CSS3, JavaScript, PHP, Next.js</li>
+              <li>Python (Script, Automazioni, Web App, Analisi Dati)</li>
+              <li>C# (.NET), VB.NET, Java (base), Bash</li>
+              <li>CMS: WordPress</li>
             </ul>
           </div>
-          <figure class="hero-media">
-           <img 
-                src="assets/business-card-front.webp" 
-                alt="Biglietto da visita Vincenzo Atturo"
-                width="400" height="240"
-                fetchpriority="high"
-                decoding="async"
-                loading="eager">
-          </figure>
-        </div>
-      </section>
-
-      <section id="servizi" class="section">
-        <div class="container">
-          <h2>Servizi</h2>
-          <div class="grid-4">
-            <div class="card">
-              <div class="icon">💻</div>
-              <h3>Programmazione Python &amp; Sviluppo Software</h3>
-              <p>Script, automazioni, API, applicazioni desktop e web. Integrazioni con database e flussi informativi.</p>
-            </div>
-            <div class="card">
-              <div class="icon">🌐</div>
-              <h3>Programmazione Web</h3>
-              <p>Siti e Web App con stack moderno. Ottimizzazione performance e accessibilità.</p>
-            </div>
-            <div class="card">
-              <div class="icon">📊</div>
-              <h3>Analisi &amp; Gestione Dati</h3>
-              <p>SQL, PostgreSQL, MySQL, NoSQL. Pipeline ETL con Python &amp; Pandas e reportistica.</p>
-            </div>
-            <div class="card">
-              <div class="icon">📍</div>
-              <h3>GIS &amp; GeoData</h3>
-              <p>Rilevazioni geospaziali, lavorazioni su QGIS, bonifica e integrazione dati territoriali.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="esperienza" class="section alt">
-        <div class="container">
-          <h2>Esperienza</h2>
-          <div class="timeline">
-            <article class="item">
-              <h3>SEL - Servizi Enti Locali S.r.l. <span class="pill">Lug 2023 – Presente</span></h3>
-              <p>Contratto per la Pubblica Amministrazione. Gestione dati, bonifiche e ottimizzazione database; supporto IT, gestione accessi, sicurezza e conformità GDPR. Appalto in partnership con <strong>Municipia (Gruppo Engineering)</strong> per il Comune di Ardea: ottimizzazione flussi, <strong>rilevazione e bonifica del territorio con file GIS</strong>, lavorazioni su <strong>QGIS</strong> e governance dei dati.</p>
-            </article>
-            <article class="item">
-              <h3>IT Consultant &amp; Digital Solutions Developer (Freelance) <span class="pill">2023 – Presente</span></h3>
-              <p>Consulenza e sviluppo su misura: sviluppo web, reti, automazioni dati, ottimizzazione processi IT.</p>
-            </article>
-            <article class="item">
-              <h3>Poseidon – Comune di Nettuno (Roma) <span class="pill">2021 – 2023</span></h3>
-              <p>Sviluppo e manutenzione di applicativi web/desktop (HTML, PHP, MySQL, C#). Gestione database e sicurezza.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="competenze" class="section">
-        <div class="container">
-          <h2>Competenze</h2>
-          <div class="skills">
-            <div>
-              <h3>Programmazione &amp; Web</h3>
-              <ul>
-                <li>HTML5, CSS3, JavaScript, PHP, Next.js</li>
-                <li>Python (Script, Automazioni, Web App, Analisi Dati)</li>
-                <li>C# (.NET), VB.NET, Java (base), Bash </li>
-                <li>CMS: WordPress</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Sistemi &amp; Sicurezza</h3>
-              <ul>
-                <li>Windows 11, Linux (Ubuntu, Redhat, CentOS, Solaris)</li>
-                <li>Conformità GDPR</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Dati &amp; Big Data</h3>
-              <ul>
-                <li>SQL Server, MySQL, PostgreSQL, MongoDB,Redis</li>
-                <li>ETL con Python &amp; Pandas</li>
-                <li>Hadoop, Spark, architetture distribuite</li>
-              </ul>
-            </div>
-            <div>
-              <h3>GIS &amp; Geospaziale</h3>
-              <ul>
-                <li>File GIS, QGIS avanzato</li>
-                <li>Rilevazioni geospaziali, integrazione con database</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contatti" class="section alt">
-        <div class="container contact">
           <div>
-            <h2>Contatti</h2>
-            <p><strong>Telefono:</strong> <a href="tel:+393349916514">+39 334 991 6514</a></p>
-            <p><strong>Email:</strong> <a href="mailto:atturo.vincenzo@gmail.com">atturo.vincenzo@gmail.com</a></p>
-            <p><strong>LinkedIn:</strong>  <a href="https://www.linkedin.com/in/vincenzo-atturo-ixz" target="_blank" rel="noopener noreferrer">linkedin.com/in/vincenzo-atturo-ixz</a></p>
-            <p>Disponibile in tutta Italia, in presenza e da remoto.</p>
-            <div class="cta">
-              <a class="btn" href="mailto:atturo.vincenzo@gmail.com">Scrivimi</a>
-              <a class="btn ghost" href="#servizi">Vedi servizi</a>
-            </div>
+            <h3>Sistemi &amp; Sicurezza</h3>
+            <ul>
+              <li>Windows 11, Linux (Ubuntu, Redhat, CentOS, Solaris)</li>
+              <li>Conformità GDPR</li>
+            </ul>
           </div>
-          <figure class="hero-media card-preview">
-            <img src="assets/business-card-back.webp" alt="Retro biglietto da visita" />
-          </figure>
+          <div>
+            <h3>Dati &amp; Big Data</h3>
+            <ul>
+              <li>SQL Server, MySQL, PostgreSQL, MongoDB, Redis</li>
+              <li>ETL con Python &amp; Pandas</li>
+              <li>Hadoop, Spark, architetture distribuite</li>
+            </ul>
+          </div>
+          <div>
+            <h3>GIS &amp; Geospaziale</h3>
+            <ul>
+              <li>File GIS, QGIS avanzato</li>
+              <li>Rilevazioni geospaziali, integrazione con database</li>
+            </ul>
+          </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container foot">
-        <span>© 2025 Vincenzo Atturo</span>
-        <span>IT Manager &amp; Digital Solutions Developer</span>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      // Simple mobile menu
-      const btn = document.querySelector('.hamburger');
-      const menu = document.getElementById('menu');
+    <section id="contatti" class="section alt">
+      <div class="container contact">
+        <div>
+          <h2>Contatti</h2>
+          <p><strong>Telefono:</strong> <a href="tel:+393349916514">+39 334 991 6514</a></p>
+          <p><strong>Email:</strong> <a href="mailto:atturo.vincenzo@gmail.com">atturo.vincenzo@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vincenzo-atturo-ixz" target="_blank" rel="noopener noreferrer">linkedin.com/in/vincenzo-atturo-ixz</a></p>
+          <p>Disponibile in tutta Italia, in presenza e da remoto.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:atturo.vincenzo@gmail.com">Scrivimi</a>
+            <a class="btn ghost" href="#servizi">Vedi servizi</a>
+          </div>
+        </div>
+        <figure class="hero-media card-preview">
+          <img
+            src="/assets/business-card-back.webp"
+            alt="Retro del biglietto da visita di Vincenzo Atturo"
+            width="400" height="240"
+            loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container foot">
+      <span>© <span id="year">2025</span> Vincenzo Atturo</span>
+      <span>IT Manager &amp; Digital Solutions Developer</span>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile accessibile
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('menu');
+    if (btn && menu) {
       btn.addEventListener('click', () => {
         const open = menu.classList.toggle('open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      // Inject year
-      document.querySelector('.footer .foot span').textContent = `© ${new Date().getFullYear()} Vincenzo Atturo`;
-    </script>
-  </body>
+    }
+
+    // Aggiorna anno
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
