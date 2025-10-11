@@ -45,14 +45,14 @@
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
-      'functionality_storage': 'granted', // opzionale, senza profiling
+      'functionality_storage': 'granted',
       'security_storage': 'granted'
     });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHM9NLKEND"></script>
   <script>
     gtag('js', new Date());
-    // Quando l’utente accetta (col tuo banner CMP), chiama:
+    // Al consenso della CMP:
     // gtag('consent', 'update', { 'analytics_storage': 'granted' });
     gtag('config', 'G-HHM9NLKEND', { anonymize_ip: true });
   </script>
@@ -85,28 +85,38 @@
   }
   </script>
 
-  <!-- A11y base inlined (vedi anche CSS sotto) -->
+  <!-- A11y base inlined + glow del bottone tondo -->
   <style>
     .skip-link{position:absolute;left:-9999px;top:auto}
     .skip-link:focus{left:0;top:0;background:#000;color:#fff;padding:.5rem 1rem;z-index:1000}
     :focus-visible{outline:3px solid currentColor;outline-offset:2px}
     @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+    /* Glow verde per il bottone tondo (usa --glow del tuo CSS) */
+    .menu-toggle{box-shadow: var(--glow);}
+    .menu-toggle:hover,
+    .menu-toggle[aria-expanded="true"]{box-shadow: 0 0 30px rgba(39,193,122,.35);}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Salta al contenuto</a>
 
   <header role="banner" class="site-header">
-    <nav aria-label="Principale" class="site-nav">
-      <button class="hamburger" aria-label="Apri menu" aria-controls="menu" aria-expanded="false">
-        ☰
+    <nav aria-label="Principale" class="site-nav container">
+      <!-- Bottone menu tondo con tre linette -->
+      <button class="menu-toggle" aria-label="Apri menu" aria-controls="menu" aria-expanded="false">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
       </button>
-      <ul id="menu" class="menu">
-        <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#esperienza">Esperienza</a></li>
-        <li><a href="#competenze">Competenze</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+
+      <!-- Menu -->
+      <ul id="menu" class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="/" aria-current="page">Home</a></li>
+        <li role="none"><a role="menuitem" href="#servizi">Servizi</a></li>
+        <li role="none"><a role="menuitem" href="#esperienza">Esperienza</a></li>
+        <li role="none"><a role="menuitem" href="#competenze">Competenze</a></li>
+        <li role="none"><a role="menuitem" href="#contatti">Contatti</a></li>
       </ul>
     </nav>
   </header>
@@ -258,20 +268,62 @@
     </div>
   </footer>
 
+  <!-- JS: menu tondo accessibile con animazione X, Esc e trap focus -->
   <script>
-    // Menu mobile accessibile
-    const btn = document.querySelector('.hamburger');
-    const menu = document.getElementById('menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('menu');
+      if (!btn || !menu) return;
 
-    // Aggiorna anno
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
+      const links = menu.querySelectorAll('a[href]');
+      const first = links[0];
+      const last  = links[links.length - 1];
+
+      function openMenu(){
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        first && first.focus();
+        document.addEventListener('keydown', onKey, true);
+        document.addEventListener('click', onClickOutside, true);
+      }
+
+      function closeMenu(){
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+        document.removeEventListener('keydown', onKey, true);
+        document.removeEventListener('click', onClickOutside, true);
+      }
+
+      function toggleMenu(){
+        const isOpen = menu.classList.contains('open');
+        isOpen ? closeMenu() : openMenu();
+      }
+
+      function onKey(e){
+        if (e.key === 'Escape'){ closeMenu(); }
+        if (!menu.classList.contains('open')) return;
+        if (e.key === 'Tab' && links.length){
+          if (e.shiftKey && document.activeElement === first){
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last){
+            e.preventDefault(); first.focus();
+          }
+        }
+      }
+
+      function onClickOutside(e){
+        if (!menu.classList.contains('open')) return;
+        const inside = menu.contains(e.target) || btn.contains(e.target);
+        if (!inside) closeMenu();
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      // Aggiorna anno
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
