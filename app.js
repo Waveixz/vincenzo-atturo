@@ -125,3 +125,97 @@
   // Sanitizza stato iniziale
   closeMenu({ restoreFocus: false });
 })();
+
+(() => {
+  document.querySelectorAll("[data-dd]").forEach(dd => {
+    const btn = dd.querySelector(".va-dd__btn");
+    const list = dd.querySelector(".va-dd__list");
+    const valueEl = dd.querySelector("[data-dd-value]");
+    const hidden = dd.querySelector('input[type="hidden"][name="pacchetto"]');
+    const items = [...dd.querySelectorAll(".va-dd__item")];
+
+    function open(){
+      dd.classList.add("is-open");
+      btn.setAttribute("aria-expanded","true");
+      list.focus();
+    }
+    function close(){
+      dd.classList.remove("is-open");
+      btn.setAttribute("aria-expanded","false");
+    }
+    function setValue(v){
+      valueEl.textContent = v;
+      hidden.value = v;
+      items.forEach(it => it.classList.toggle("is-selected", it.dataset.value === v));
+      close();
+    }
+
+    btn.addEventListener("click", () => dd.classList.contains("is-open") ? close() : open());
+
+    items.forEach(it => {
+      it.addEventListener("click", () => setValue(it.dataset.value));
+      it.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setValue(it.dataset.value); }
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dd.contains(e.target)) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  });
+
+  /* Precompila da data-package (riusa la tua logica) */
+  document.querySelectorAll("[data-package]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pkg = btn.getAttribute("data-package")?.trim();
+      if (!pkg) return;
+
+      const hidden = document.querySelector('input[name="pacchetto"]');
+      const valueEl = document.querySelector("[data-dd-value]");
+      const dd = document.querySelector("[data-dd]");
+      if (hidden && valueEl) {
+        hidden.value = pkg;
+        valueEl.textContent = pkg;
+        if (dd) {
+          dd.querySelectorAll(".va-dd__item").forEach(it => {
+            it.classList.toggle("is-selected", it.dataset.value === pkg);
+          });
+        }
+      }
+    });
+  });
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const form = e.target;
+
+  const nome = form.querySelector('[name="nome"]')?.value || '';
+  const email = form.querySelector('[name="email"]')?.value || '';
+  const servizio = form.querySelector('[name="servizio"]')?.value || '';
+  const budget = form.querySelector('[name="budget"]')?.value || '';
+  const tempistica = form.querySelector('[name="tempistica"]')?.value || '';
+  const messaggio = form.querySelector('[name="messaggio"]')?.value || '';
+
+  const subject = encodeURIComponent("Richiesta dal sito VA Digital");
+
+  const body = encodeURIComponent(
+`Nome: ${nome}
+Email: ${email}
+Servizio: ${servizio}
+Budget: ${budget}
+Tempistica: ${tempistica}
+
+Messaggio:
+${messaggio}
+`);
+
+  const mailto = `mailto:atturo.vincenzo@gmail.com?subject=${subject}&body=${body}`;
+
+  window.location.href = mailto;
+});
