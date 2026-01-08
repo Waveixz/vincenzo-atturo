@@ -586,3 +586,112 @@ h2{ font-size: clamp(26px, 3.6vw, 34px); margin:0 0 18px; }
   }
 }
 
+:root{ --sticky-h: 56px; }
+
+.sticky-nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--sticky-h);
+  z-index: 9999;              /* alza lo z-index */
+  background: rgba(11,15,12,.72);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transform: translateY(-110%);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.sticky-nav.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sticky-nav__inner{
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.btn--sm{
+  padding: .45rem .8rem;
+  font-size: .95rem;
+}
+
+main{ padding-top: 0; }
+body.has-sticky main{ padding-top: var(--sticky-h); }
+
+
+section[id]{ scroll-margin-top: calc(var(--sticky-h) + 12px); }
+
+.nav-desktop a.is-active{
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Evita flash: nascondi finché non finiscono gli include */
+html.va-loading body { opacity: 0; }
+html.va-ready body { opacity: 1; transition: opacity .12s ease; }
+
+/* ===== Cookie banner overlay + box ===== */
+.cookie{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: end center;
+  padding: 20px;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.cookie__box{
+  position: relative;
+  width: min(720px, 96vw);
+  border-radius: 18px;
+  padding: 18px;
+  padding-top: 54px;
+  background: rgba(17,22,20,.92);
+  border: 1px solid rgba(39,193,122,.28);
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+  overflow: visible;
+}
+
+.cookie__close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.10);
+
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.cookie__close:hover{ background: rgba(255,255,255,.18); }
+
+.cookie__title{ margin: 0 0 8px; }
+.cookie__text{ margin: 0 0 14px; color: var(--muted); }
+.cookie__actions{ display:flex; gap:10px; flex-wrap:wrap; }
+.cookie__prefs{ margin-top: 12px; }
+.cookie__row{ display:flex; gap:10px; align-items:center; margin: 8px 0; }
+
+/* hidden deve vincere SEMPRE */
+.cookie[hidden]{
+  display: none !important;
+}
+
+
+
+

@@ -1,0 +1,45 @@
+<div id="cookie-banner"
+     class="cookie"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Preferenze cookie"
+     hidden>
+
+  <div class="cookie__box">
+
+    <button type="button"
+            class="cookie__close"
+            aria-label="Chiudi"
+            data-cookie="close">✕</button>
+
+    <p class="cookie__title"><strong>Cookie</strong></p>
+
+    <p class="cookie__text">
+      Usiamo cookie tecnici necessari e, solo con il tuo consenso, cookie di analisi.
+      <a href="/privacy.html">Leggi la Privacy</a>.
+    </p>
+
+    <div class="cookie__actions">
+      <button type="button" class="btn btn--sm" data-cookie="accept">Accetta</button>
+      <button type="button" class="btn ghost btn--sm" data-cookie="reject">Rifiuta</button>
+      <button type="button" class="btn ghost btn--sm" data-cookie="prefs">Preferenze</button>
+    </div>
+
+    <div id="cookie-prefs" class="cookie__prefs" hidden>
+      <label class="cookie__row">
+        <input type="checkbox" checked disabled>
+        <span>Tecnici (necessari)</span>
+      </label>
+
+      <label class="cookie__row">
+        <input id="cookie-analytics" type="checkbox">
+        <span>Analytics</span>
+      </label>
+
+      <div class="cookie__actions">
+        <button type="button" class="btn btn--sm" data-cookie="save">Salva</button>
+      </div>
+    </div>
+
+  </div>
+</div>
