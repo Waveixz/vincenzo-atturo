@@ -15,7 +15,6 @@
     const menu = $("#menu");
     if (!btn || !menu) return;
 
-    // evita doppie inizializzazioni se richiamato più volte
     if (btn.dataset.inited === "1") return;
     btn.dataset.inited = "1";
 
@@ -85,7 +84,7 @@
   }
 
   /* ===========================
-     Dropdown pacchetti
+     Dropdown (GENERICA: tutti i dropdown)
      =========================== */
   function initDropdowns() {
     const dropdowns = $$("[data-dd]");
@@ -98,7 +97,9 @@
       const btn = $(".va-dd__btn", dd);
       const list = $(".va-dd__list", dd);
       const valueEl = $("[data-dd-value]", dd);
-      const hidden = $('input[type="hidden"][name="pacchetto"]', dd);
+
+      // ✅ PRENDE L'HIDDEN DENTRO IL DROPDOWN (servizio/budget/tempistica/pacchetto)
+      const hidden = $('input[type="hidden"]', dd);
       const items = $$(".va-dd__item", dd);
 
       if (!btn || !list || !valueEl || !hidden || items.length === 0) return;
@@ -120,19 +121,31 @@
         close();
       }
 
-      btn.addEventListener("click", () => dd.classList.contains("is-open") ? close() : open());
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        dd.classList.contains("is-open") ? close() : open();
+      });
 
       items.forEach(it => {
-        it.addEventListener("click", () => setValue(it.dataset.value));
+        it.addEventListener("click", (e) => {
+          e.preventDefault();
+          setValue(it.dataset.value);
+        });
         it.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setValue(it.dataset.value); }
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setValue(it.dataset.value);
+          }
         });
       });
 
-      document.addEventListener("click", (e) => { if (!dd.contains(e.target)) close(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      document.addEventListener("click", (e) => { if (!dd.contains(e.target)) close(); }, true);
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); }, true);
     });
 
+    /* ===========================
+       CTA pacchetti -> precompila dropdown pacchetto (solo se esiste)
+       =========================== */
     $$("[data-package]").forEach(btn => {
       if (btn.dataset.inited === "1") return;
       btn.dataset.inited = "1";
@@ -141,18 +154,19 @@
         const pkg = btn.getAttribute("data-package")?.trim();
         if (!pkg) return;
 
-        const hidden = document.querySelector('input[name="pacchetto"]');
-        const valueEl = document.querySelector("[data-dd-value]");
-        const dd = document.querySelector("[data-dd]");
+        // ✅ target preciso: dropdown che contiene input hidden name="pacchetto"
+        const dd = document.querySelector('[data-dd] input[name="pacchetto"]')?.closest("[data-dd]");
+        if (!dd) return;
+
+        const hidden = $('input[type="hidden"]', dd);
+        const valueEl = $("[data-dd-value]", dd);
 
         if (hidden) hidden.value = pkg;
         if (valueEl) valueEl.textContent = pkg;
 
-        if (dd) {
-          dd.querySelectorAll(".va-dd__item").forEach(it => {
-            it.classList.toggle("is-selected", it.dataset.value === pkg);
-          });
-        }
+        dd.querySelectorAll(".va-dd__item").forEach(it => {
+          it.classList.toggle("is-selected", it.dataset.value === pkg);
+        });
       });
     });
   }
@@ -171,6 +185,8 @@
 
       const nome = form.querySelector('[name="nome"]')?.value || '';
       const email = form.querySelector('[name="email"]')?.value || '';
+
+      // qui lasciamo invariato: se non esistono campi, restano vuoti
       const servizio = form.querySelector('[name="servizio"]')?.value || '';
       const budget = form.querySelector('[name="budget"]')?.value || '';
       const tempistica = form.querySelector('[name="tempistica"]')?.value || '';
@@ -223,8 +239,6 @@ ${messaggio}
 
   /* ===========================
      Bootstrap
-     - parte subito (per elementi già presenti)
-     - parte dopo include (per header/sticky/menu caricati via fetch)
      =========================== */
   function initAll(){
     initMenu();
@@ -238,5 +252,3 @@ ${messaggio}
   window.addEventListener("load", initAll);
 
 })();
-
-
