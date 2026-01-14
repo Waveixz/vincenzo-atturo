@@ -667,98 +667,120 @@ html.va-ready body { opacity: 1; transition: opacity .12s ease; }
    STICKY NAV (logo sx + link dx)
    =========================== */
 
-:root{ --sticky-h: 56px; }
+:root{ --sticky-h:56px; }
 
+/* barra */
 .sticky-nav{
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top:0; left:0; right:0;
   height: var(--sticky-h);
   z-index: 9999;
 
-  background: rgba(11,15,12,.72);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(11,15,12,.75);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 
-  opacity: 0;
+  opacity:0;
   transform: translateY(-110%);
-  pointer-events: none;
+  pointer-events:none;
   transition: opacity .25s ease, transform .25s ease;
 }
 
 .sticky-nav.is-visible{
-  opacity: 1;
+  opacity:1;
   transform: translateY(0);
-  pointer-events: auto;
+  pointer-events:auto;
 }
 
-/* contenitore interno */
+/* inner */
 .sticky-nav__inner{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* logo sx, link dx */
-  gap: 14px;
-  padding-inline:  50px !important;
+  max-width:1200px;
+  height:100%;
+  margin:0 auto;
+  padding:0 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
 
 /* logo */
 .sticky-brand{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
-  min-width: 0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text);
+  flex-shrink:0;
 }
 
-.sticky-brand .brand-mark{
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  color: #062015;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: var(--glow);
-  flex: 0 0 auto;
-}
-
-.sticky-brand .brand-text{
-  font-weight: 800;
-  letter-spacing: .3px;
-  white-space: nowrap;
-}
-
-/* link a destra */
+/* nav link */
 .sticky-nav__links{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
 
-/* bottoni piccoli */
-.btn--sm{
-  padding: .45rem .8rem;
-  font-size: .95rem;
+.sticky-nav__links a{
+  color: var(--muted);
+  font-weight:600;
+  text-decoration:none;
+  padding:6px 0;
+  position:relative;
+  transition: color .2s ease;
 }
 
-/* offset contenuto quando sticky visibile */
-body.has-sticky main{ padding-top: var(--sticky-h); }
-
-/* ancora: evita che le sezioni finiscano sotto lo sticky */
-section[id]{ scroll-margin-top: calc(var(--sticky-h) + 12px); }
-
-/* mobile: se vuoi stringere spazi */
-@media (max-width: 560px){
-  .sticky-brand .brand-text{ display: none; } /* opzionale: lascia solo "VA" */
-  .sticky-nav__links{ gap: 8px; }
-  .btn--sm{ padding: .4rem .65rem; font-size: .9rem; }
+.sticky-nav__links a:hover,
+.sticky-nav__links a:focus-visible{
+  color: var(--text);
 }
 
+/* underline glow */
+.sticky-nav__links a::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-4px;
+  height:2px;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  opacity:0;
+  transform: scaleX(.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.sticky-nav__links a:hover::after,
+.sticky-nav__links a:focus-visible::after{
+  opacity:1;
+  transform: scaleX(1);
+}
+
+/* offset contenuto */
+body.has-sticky main{
+  padding-top: var(--sticky-h);
+}
+
+/* ===== Mobile ===== */
+@media (max-width:560px){
+  .sticky-nav__inner{
+    padding:0 12px;
+    gap:10px;
+  }
+
+  /* logo compatto */
+  .sticky-brand .brand-text{ display:none; }
+
+  /* link scrollabili */
+  .sticky-nav__links{
+    flex:1 1 auto;
+    justify-content:flex-end;
+    gap:14px;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .sticky-nav__links::-webkit-scrollbar{ height:0; }
+  .sticky-nav__links{ scrollbar-width:none; }
+}
 
 
 
@@ -802,3 +824,20 @@ section[id]{ scroll-margin-top: calc(var(--sticky-h) + 12px); }
 .va-dd__list::-webkit-scrollbar-thumb:hover{
   background: rgba(39,193,122,.55);
 }
+
+.card-media {
+  margin: 12px 0 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #111;
+}
+
+.card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+

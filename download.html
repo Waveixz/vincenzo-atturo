@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Download | VA Digital</title>
+  <meta name="description" content="Scarica risorse, tool e materiali: automazioni, report, template e documentazione." />
+  <link rel="canonical" href="https://va-digital.it/download.html" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add('va-loading');
+  </script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div data-include="stikly"></div>
+
+  <main>
+    <div data-include="header"></div>
+
+    <!-- HERO -->
+    <header class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Download</h1>
+        <p class="page-subtitle">Risorse gratuite e materiali utili (tool, template, guide).</p>
+      </div>
+    </header>
+
+    <!-- LISTA DOWNLOAD -->
+    <section class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2>Risorse disponibili</h2>
+          <p class="quick">Se vuoi una versione su misura o aggiornata, contattami.</p>
+        </header>
+
+        <div class="grid grid-3">
+
+          <!-- ITEM 1 -->
+            <article class="card">
+                <h3>Mail Report (EWS / Exchange) - versione gratuita</h3>
+
+                <!-- Preview app -->
+                <div class="card-media">
+                  <img
+                    src="/assets/img/mail-report-ews-preview.png"
+                    alt="Anteprima Mail Report EWS / Exchange"
+                    loading="lazy"
+                  />
+                </div>
+
+                <p class="quick pb">
+                  Applicazione desktop gratuita per generare report sulle email ricevute e inviate
+                  da caselle Exchange / EWS (WorkMail, Microsoft 365, Exchange on-prem).
+                </p>
+
+                <ul class="features">
+                  <li>Conteggio email per intervallo date</li>
+                  <li>Selezione cartelle (Inbox, sottocartelle, Inviata)</li>
+                  <li>Configurazione server EWS via interfaccia</li>
+                  <li>Esportazione report in Excel (.xlsx)</li>
+                  <li>Nessuna password salvata</li>
+                </ul>
+
+                <div class="actions">
+                  <a class="btn btn-primary btn-block"
+                    href="/assets/downloads/MailReportEWS.zip"
+                    download
+                    data-download="MailReportEWS.zip">
+                    Scarica applicazione (Windows)
+                  </a>
+
+                  <a class="btn btn-ghost btn-block"
+                    href="/assets/downloads/MailReportEWS-README.md"
+                    download
+                    data-download="MailReportEWS-README.md">
+                    Guida all’uso (README)
+                  </a>
+                </div>
+              </article>
+
+
+     
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="note-block card">
+          <h2>Vuoi una versione personalizzata?</h2>
+          <p class="quick">
+            Posso adattare tool e template ai tuoi dati e al tuo flusso di lavoro (enti, studi, PMI).
+          </p>
+          <div class="cta">
+            <a class="btn" href="/#contatti">Contattami</a>
+            <a class="btn ghost" href="/pacchetti.html">Vedi pacchetti</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div data-include="footer"></div>
+    <div data-include="cookie"></div>
+  </main>
+
+  <script src="/includes.js" defer></script>
+  <script src="/cookie-consent.js" defer></script>
+  <script src="/app.js" defer></script>
+
+  <!-- Tracking opzionale GA4 (se usi gtag) -->
+  <script>
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[data-download]");
+      if (!a) return;
+      const file = a.getAttribute("data-download");
+
+      // Se gtag esiste, traccia evento download
+      if (typeof gtag === "function") {
+        gtag("event", "download", {
+          file_name: file,
+          page_location: location.href
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
