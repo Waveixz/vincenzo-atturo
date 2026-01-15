@@ -1,4 +1,4 @@
-/* app.js — VA Digital (safe + include-ready) */
+/* app.js — VA Digital (safe + include-ready, sticky mobile always) */
 
 (() => {
   "use strict";
@@ -84,7 +84,7 @@
   }
 
   /* ===========================
-     Dropdown (GENERICA: tutti i dropdown)
+     Dropdown (GENERICA)
      =========================== */
   function initDropdowns() {
     const dropdowns = $$("[data-dd]");
@@ -97,8 +97,6 @@
       const btn = $(".va-dd__btn", dd);
       const list = $(".va-dd__list", dd);
       const valueEl = $("[data-dd-value]", dd);
-
-      // ✅ PRENDE L'HIDDEN DENTRO IL DROPDOWN (servizio/budget/tempistica/pacchetto)
       const hidden = $('input[type="hidden"]', dd);
       const items = $$(".va-dd__item", dd);
 
@@ -154,7 +152,6 @@
         const pkg = btn.getAttribute("data-package")?.trim();
         if (!pkg) return;
 
-        // ✅ target preciso: dropdown che contiene input hidden name="pacchetto"
         const dd = document.querySelector('[data-dd] input[name="pacchetto"]')?.closest("[data-dd]");
         if (!dd) return;
 
@@ -185,8 +182,6 @@
 
       const nome = form.querySelector('[name="nome"]')?.value || '';
       const email = form.querySelector('[name="email"]')?.value || '';
-
-      // qui lasciamo invariato: se non esistono campi, restano vuoti
       const servizio = form.querySelector('[name="servizio"]')?.value || '';
       const budget = form.querySelector('[name="budget"]')?.value || '';
       const tempistica = form.querySelector('[name="tempistica"]')?.value || '';
@@ -203,20 +198,31 @@ Tempistica: ${tempistica}
 Messaggio:
 ${messaggio}
 `);
+
       window.location.href = `mailto:atturo.vincenzo@gmail.com?subject=${subject}&body=${body}`;
     });
   }
 
   /* ===========================
-     Sticky nav (dopo hero)
+     Sticky nav
+     - Mobile (<=560): sempre visibile
+     - Desktop: visibile solo dopo hero
      =========================== */
   function initStickyNav() {
     const bar = $(".sticky-nav");
-    const sentinel = $("#hero-sentinel");
-    if (!bar || !sentinel) return;
+    if (!bar) return;
 
+    // inizializza una sola volta
     if (bar.dataset.inited === "1") return;
     bar.dataset.inited = "1";
+
+    const sentinel = $("#hero-sentinel");
+
+    const mqMobile = window.matchMedia("(max-width: 560px)");
+
+    let rafId = null;
+    let onScroll = null;
+    let onResize = null;
 
     function setVisible(show){
       bar.classList.toggle("is-visible", show);
@@ -224,21 +230,67 @@ ${messaggio}
       bar.setAttribute("aria-hidden", String(!show));
     }
 
-    function compute(){
+    function computeDesktop(){
+      if (!sentinel) {
+        // fallback: se manca sentinel, la teniamo visibile
+        setVisible(true);
+        return;
+      }
       const rect = sentinel.getBoundingClientRect();
       setVisible(rect.top <= 0);
     }
 
-    setVisible(false);
-    compute();
+    function scheduleCompute(){
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        computeDesktop();
+      });
+    }
 
-    window.addEventListener("scroll", compute, { passive: true });
-    window.addEventListener("resize", compute, { passive: true });
-    window.addEventListener("load", compute, { passive: true });
+    function enableMobile(){
+      // in mobile: sempre visibile e stop listener desktop
+      teardownDesktop();
+      setVisible(true);
+    }
+
+    function enableDesktop(){
+      // in desktop: parte nascosta e si aggiorna con scroll/resize
+      // (così non la vedi dentro l'hero)
+      setVisible(false);
+      computeDesktop();
+
+      onScroll = () => scheduleCompute();
+      onResize = () => scheduleCompute();
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onResize, { passive: true });
+      window.addEventListener("load", scheduleCompute, { passive: true });
+    }
+
+    function teardownDesktop(){
+      if (onScroll) window.removeEventListener("scroll", onScroll);
+      if (onResize) window.removeEventListener("resize", onResize);
+      onScroll = null;
+      onResize = null;
+
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    function applyMode(){
+      if (mqMobile.matches) enableMobile();
+      else enableDesktop();
+    }
+
+    mqMobile.addEventListener?.("change", applyMode);
+    applyMode();
   }
 
   /* ===========================
-     Bootstrap
+     Bootstrap (include-ready)
      =========================== */
   function initAll(){
     initMenu();

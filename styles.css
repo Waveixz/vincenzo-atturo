@@ -841,7 +841,7 @@ body.has-sticky main{
 
 
 
-/* CTA più bella in mobile (centrata e “wrap”) */
+/* CTA più bella in mobile (centrata e “wrap”)
 @media (max-width: 560px){
   .cta{
     justify-content: center;
@@ -853,5 +853,116 @@ body.has-sticky main{
     width: auto;
     min-width: 120px;
     text-align: center;
+  } 
+}*/
+
+/* ===========================
+   Mobile: nascondi CTA Hero + sticky sempre visibile
+   =========================== */
+@media (max-width: 560px){
+
+  /* 1) spariscono i bottoni dentro la hero */
+  .hero .cta{
+    display: none !important;
+  }
+
+  /* 2) sticky sempre visibile in mobile */
+  .sticky-nav{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  /* opzionale: se vuoi zero "animazione" in mobile */
+  .sticky-nav{
+    transition: none !important;
+  }
+
+  .footer-col--links{
+    display: none !important;
+  }
+
+    .note-block .cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    align-items:center;
+  }
+
+  /* override della tua regola mobile ".cta .btn { min-width:120px ... }" */
+  /* ===========================
+   Card download: bottoni -> link in mobile
+   =========================== */
+@media (max-width: 560px){
+
+  .actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* override completo dei bottoni */
+  .actions .btn{
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 6px 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    color: var(--muted) !important;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+
+    transform: none !important;
+  }
+
+  .actions .btn:hover,
+  .actions .btn:focus-visible{
+    color: var(--text) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* underline glow stile sticky */
+  .actions .btn::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-4px;
+    height:2px;
+    background: linear-gradient(135deg,var(--accent),var(--accent-2));
+    opacity:0;
+    transform: scaleX(.6);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  .actions .btn:hover::after,
+  .actions .btn:focus-visible::after{
+    opacity:1;
+    transform: scaleX(1);
+  }
+
+  /* neutralizza classi bootstrap-like */
+  .actions .btn-primary,
+  .actions .btn-ghost,
+  .actions .btn-block{
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    width: auto !important;
   }
 }
+
+}
+
+
+
