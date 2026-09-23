@@ -2,44 +2,48 @@
      class="cookie"
      role="dialog"
      aria-modal="true"
-     aria-label="Preferenze cookie"
+     aria-labelledby="cookie-title"
+     aria-describedby="cookie-description"
      hidden>
-
   <div class="cookie__box">
-
     <button type="button"
             class="cookie__close"
-            aria-label="Chiudi"
-            data-cookie="close">✕</button>
+            aria-label="Chiudi il banner cookie"
+            data-cookie="close"></button>
 
-    <p class="cookie__title"><strong>Cookie</strong></p>
-
-    <p class="cookie__text">
-      Usiamo cookie tecnici necessari e, solo con il tuo consenso, cookie di analisi.
-      <a href="/pages/privacy.html">Leggi la Privacy</a>.
-    </p>
-
-    <div class="cookie__actions">
-      <button type="button" class="btn btn--sm" data-cookie="accept">Accetta</button>
-      <button type="button" class="btn ghost btn--sm" data-cookie="reject">Rifiuta</button>
-      <button type="button" class="btn ghost btn--sm" data-cookie="prefs">Preferenze</button>
-    </div>
-
-    <div id="cookie-prefs" class="cookie__prefs" hidden>
-      <label class="cookie__row">
-        <input type="checkbox" checked disabled>
-        <span>Tecnici (necessari)</span>
-      </label>
-
-      <label class="cookie__row">
-        <input id="cookie-analytics" type="checkbox">
-        <span>Analytics</span>
-      </label>
-
-      <div class="cookie__actions">
-        <button type="button" class="btn btn--sm" data-cookie="save">Salva</button>
+    <div class="cookie__content">
+      <div class="cookie__mark" aria-hidden="true">VA</div>
+      <div>
+        <p class="cookie__eyebrow">PRIVACY &amp; COOKIE</p>
+        <h2 id="cookie-title" class="cookie__title">La tua privacy, una scelta chiara.</h2>
+        <p id="cookie-description" class="cookie__text">
+          Usiamo i cookie necessari al funzionamento del sito. Con il tuo consenso,
+          utilizziamo anche cookie di analisi per migliorare l'esperienza.
+          <a href="/pages/privacy.html">Scopri di pi&ugrave;</a>
+        </p>
       </div>
     </div>
 
+    <div class="cookie__actions">
+      <button type="button" class="cookie__button cookie__button--primary" data-cookie="accept">Accetta tutti</button>
+      <button type="button" class="cookie__button cookie__button--secondary" data-cookie="reject">Solo necessari</button>
+      <button type="button" class="cookie__button cookie__button--link" data-cookie="prefs" aria-controls="cookie-prefs">Personalizza</button>
+    </div>
+
+    <div id="cookie-prefs" class="cookie__prefs" hidden>
+      <div class="cookie__row">
+        <span><strong>Cookie necessari</strong><small>Sempre attivi per il corretto funzionamento del sito.</small></span>
+        <span class="cookie__status">Attivi</span>
+      </div>
+
+      <label class="cookie__row" for="cookie-analytics">
+        <span><strong>Cookie di analisi</strong><small>Ci aiutano a capire come viene utilizzato il sito.</small></span>
+        <input id="cookie-analytics" class="cookie__toggle" type="checkbox">
+      </label>
+
+      <div class="cookie__prefs-action">
+        <button type="button" class="cookie__button cookie__button--primary" data-cookie="save">Salva preferenze</button>
+      </div>
+    </div>
   </div>
 </div>

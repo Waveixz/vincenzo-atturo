@@ -54,7 +54,7 @@
       await inject('[data-include="stikly"]', "/partials/stikly.html").catch(console.error);
       await inject('[data-include="header"]', "/partials/header.html").catch(console.error);
       await inject('[data-include="footer"]', "/partials/footer.html").catch(console.error);
-      await inject('[data-include="cookie"]', "/partials/cookie.html").catch(console.error);
+      await inject('[data-include="cookie"]', "/partials/cookie.html?v=2").catch(console.error);
 
       // Anno automatico (footer)
       document.querySelectorAll("[data-year]").forEach(el => {
