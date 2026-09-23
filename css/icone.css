@@ -1,0 +1,77 @@
+
+
+/* Icon wrapper */
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0,255,150,0.08);
+}
+
+/* SVG */
+.icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent, #00ff96);
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.icon-rotate svg {
+  transition: transform .4s ease;
+}
+
+.card:hover .icon-rotate svg {
+  transform: rotate(90deg);
+}
+
+
+.icon-bars svg path {
+  transform-origin: bottom;
+  transform: scaleY(0.6);
+  transition: transform .35s ease;
+}
+
+.card:hover .icon-bars svg path {
+  transform: scaleY(1);
+}
+
+.icon-pin svg {
+  transition: transform .35s ease;
+}
+
+.card:hover .icon-pin svg {
+  transform: translateY(3px);
+}
+
+.icon-code svg path:last-child {
+  transition: transform .35s ease;
+}
+
+.card:hover .icon-code svg path:last-child {
+  transform: translateX(3px);
+}
+
+.icon-web svg path {
+  transform-origin: center;
+  transition: transform .4s ease;
+}
+
+.card:hover .icon-web svg path {
+  transform: rotate(35deg);
+}
+
+.icon-chevrons svg path {
+  transition: transform .35s ease;
+}
+
+.card:hover .icon-chevrons svg path:first-child {
+  transform: translateX(-2px);
+}
+
+.card:hover .icon-chevrons svg path:last-child {
+  transform: translateX(2px);
+}
