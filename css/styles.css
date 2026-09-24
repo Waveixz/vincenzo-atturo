@@ -1049,7 +1049,7 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .va-model .model-hero-grid{min-height:616px}
 .va-model .model-hero-photo{background-image:url('/assets/model-code.webp');background-position:center center;filter:saturate(.85) contrast(1.03)}
 .va-model .model-code{background-image:url('/assets/model-code.webp')}
-.va-model .model-gis-bg{background-image:url('/assets/model-gis.webp')}
+.va-model .model-gis-bg{background-image:url('/assets/model-gis-neutral.webp')}
 .va-model .model-overlay{background:linear-gradient(90deg,rgba(3,30,55,.98) 0%,rgba(4,35,63,.83) 38%,rgba(3,30,55,.60) 68%,rgba(3,30,55,.80) 100%)}
 .va-model .model-side{width:290px;padding-left:32px;gap:18px;font-size:15px;font-weight:750;letter-spacing:.14em;text-shadow:0 2px 12px rgba(0,0,0,.25)}
 .va-model .model-side p{font-size:18px;line-height:1.55;font-weight:450}.va-model .model-side i{width:40px}
