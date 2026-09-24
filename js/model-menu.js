@@ -6,6 +6,14 @@
     const menu = document.querySelector(".v2-menu");
     if (!button || !menu) return;
 
+    if (!menu.querySelector('a[href="/pages/casi-studio.html"]')) {
+      const caseStudiesLink = document.createElement("a");
+      caseStudiesLink.href = "/pages/casi-studio.html";
+      caseStudiesLink.textContent = "Casi studio";
+      const projectsLink = menu.querySelector('a[href="#progetti"]');
+      projectsLink?.insertAdjacentElement("afterend", caseStudiesLink);
+    }
+
     if (!menu.querySelector('a[href="/pages/guide.html"]')) {
       const guideLink = document.createElement("a");
       guideLink.href = "/pages/guide.html";
