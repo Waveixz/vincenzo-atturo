@@ -216,7 +216,7 @@
         button.disabled = true;
         button.textContent = "Invio in corso...";
       }
-      form.classList.remove("is-success", "is-error");
+      form.classList.remove("is-success", "is-error", "is-pending");
       if (status) status.textContent = "Invio della richiesta in corso.";
 
       try {
@@ -231,7 +231,18 @@
           signal: controller.signal
         });
 
-        if (!response.ok) throw new Error("Invio non riuscito");
+        const result = await response.json();
+        const accepted = result.success === true || result.success === "true";
+
+        if (!response.ok || !accepted) {
+          const activationPending = String(result.message || "").toLowerCase().includes("activation");
+          if (activationPending) {
+            form.classList.add("is-pending");
+            if (status) status.innerHTML = 'Il modulo è in fase di attivazione. Per ora puoi scrivere a <a href="mailto:atturo.vincenzo@gmail.com">atturo.vincenzo@gmail.com</a>.';
+            return;
+          }
+          throw new Error(result.message || "Invio non riuscito");
+        }
 
         form.reset();
         form.dataset.loadedAt = String(Date.now());

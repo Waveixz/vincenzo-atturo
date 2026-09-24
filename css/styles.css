@@ -1231,6 +1231,8 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .contact-status{display:none;margin-top:18px;padding:12px 14px;border-radius:6px;font-size:13px;font-weight:650;line-height:1.45}
 .contact-status:not(:empty){display:block;background:#edf6fd;color:#31536e}
 .contact-form.is-success .contact-status{background:#e7f7ef;color:#17623b}
+.contact-form.is-pending .contact-status{background:#fff5db;color:#765313}
+.contact-form.is-pending .contact-status a{color:inherit;font-weight:800}
 .contact-form.is-error .contact-status{background:#fff0f0;color:#8b2d2d}
 .contact-form.is-error .contact-status a{color:inherit;font-weight:800}
 .contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
