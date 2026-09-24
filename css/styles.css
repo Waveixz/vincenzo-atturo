@@ -1047,7 +1047,9 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .va-model .model-nav:hover{background:rgba(5,34,61,.9)}
 .va-model .model-hero{padding-top:64px;min-height:680px}
 .va-model .model-hero-grid{min-height:616px}
-.va-model .model-hero-photo{background-image:url('/assets/model-code.jpg');background-position:center center;filter:saturate(.85) contrast(1.03)}
+.va-model .model-hero-photo{background-image:url('/assets/model-code.webp');background-position:center center;filter:saturate(.85) contrast(1.03)}
+.va-model .model-code{background-image:url('/assets/model-code.webp')}
+.va-model .model-gis-bg{background-image:url('/assets/model-gis.webp')}
 .va-model .model-overlay{background:linear-gradient(90deg,rgba(3,30,55,.98) 0%,rgba(4,35,63,.83) 38%,rgba(3,30,55,.60) 68%,rgba(3,30,55,.80) 100%)}
 .va-model .model-side{width:290px;padding-left:32px;gap:18px;font-size:15px;font-weight:750;letter-spacing:.14em;text-shadow:0 2px 12px rgba(0,0,0,.25)}
 .va-model .model-side p{font-size:18px;line-height:1.55;font-weight:450}.va-model .model-side i{width:40px}
@@ -1079,13 +1081,14 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .model-category h3{transition:color .2s ease}
 .model-category:hover h3{color:#087bcf}
 .model-category:focus-visible{outline:3px solid rgba(17,143,243,.35);outline-offset:6px;border-radius:4px}
-.model-gis-bg,.package-bg{background-image:url('/assets/model-gis-neutral.jpg')}
+.inner-hero-bg{background-image:url('/assets/model-code.webp')}
+.model-gis-bg,.package-bg{background-image:url('/assets/model-gis-neutral.webp')}
 .service-card-link{display:block;margin-top:22px;color:#087bcf;font-size:14px;font-weight:750;text-decoration:none}
 .service-card-link:hover{text-decoration:underline;text-underline-offset:4px}
 .service-hero{position:relative;min-height:650px;padding-top:64px;color:#fff;background-color:#082845;background-position:center;background-size:cover;overflow:hidden}
-.service-hero--automation,.service-hero--software{background-image:url('/assets/model-code.jpg')}
-.service-hero--data{background-image:url('/assets/model-hero.jpg')}
-.service-hero--gis{background-image:url('/assets/model-gis-neutral.jpg')}
+.service-hero--automation,.service-hero--software{background-image:url('/assets/model-code.webp')}
+.service-hero--data{background-image:url('/assets/model-hero.webp')}
+.service-hero--gis{background-image:url('/assets/model-gis-neutral.webp')}
 .service-hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,30,55,.98) 0%,rgba(4,35,63,.88) 46%,rgba(3,30,55,.52) 100%)}
 .service-hero__content{position:relative;z-index:1;display:flex;min-height:586px;flex-direction:column;justify-content:center;padding-top:40px;padding-bottom:56px}
 .service-hero__content h1{max-width:900px;margin:18px 0;font-size:clamp(48px,5.2vw,74px);line-height:1.02;letter-spacing:0}
@@ -1117,7 +1120,7 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .service-metrics span{color:#8fa8c1;font-size:12px}
 .service-map-band{position:relative;padding:92px 0;color:#fff;overflow:hidden}
 .service-map-band__bg,.service-map-band__overlay{position:absolute;inset:0}
-.service-map-band__bg{background:url('/assets/model-gis-neutral.jpg') center/cover no-repeat}
+.service-map-band__bg{background:url('/assets/model-gis-neutral.webp') center/cover no-repeat}
 .service-map-band__overlay{background:rgba(3,30,55,.88)}
 .service-map-band .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center}
 .service-map-band p{max-width:650px;color:#d7e6f3;font-size:17px;line-height:1.7}
@@ -1134,7 +1137,7 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 @media(max-width:700px){.service-hero{min-height:610px}.service-hero__content{min-height:546px;padding-top:55px}.service-hero__content h1{font-size:42px}.service-hero__content>p{font-size:17px}.service-intro,.service-capabilities,.service-process,.service-proof,.service-map-band,.related-services{padding:58px 0}.service-capabilities__grid,.service-process__steps{grid-template-columns:1fr}.service-capabilities__grid article{min-height:auto}.service-capabilities__grid h3{margin-top:32px}.service-process__steps>div{border-right:0;border-bottom:1px solid rgba(74,174,255,.2)}.service-metrics{grid-template-columns:1fr}.service-intro h2,.service-capabilities h2,.service-process h2,.related-services h2,.service-map-band h2,.service-proof h2{font-size:36px}}
 
 /* Case studies */
-.case-hero{position:relative;min-height:590px;padding-top:64px;color:#fff;background:#082845 url('/assets/model-code.jpg') center/cover no-repeat;overflow:hidden}
+.case-hero{position:relative;min-height:590px;padding-top:64px;color:#fff;background:#082845 url('/assets/model-code.webp') center/cover no-repeat;overflow:hidden}
 .case-hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,30,55,.98),rgba(4,35,63,.86) 55%,rgba(3,30,55,.58))}
 .case-hero__content{position:relative;z-index:1;display:flex;min-height:526px;flex-direction:column;justify-content:center;padding-top:42px;padding-bottom:56px}
 .case-hero h1{max-width:920px;margin:18px 0;font-size:clamp(48px,5.4vw,76px);line-height:1.02;letter-spacing:0}
@@ -1151,6 +1154,7 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .case-study__lead{margin:0;color:#60748a;font-size:18px;line-height:1.7}
 .case-study--dark .case-study__lead{color:#b9cad8}
 .case-study figure{margin:0;overflow:hidden;border-radius:8px;background:#dce8f3;box-shadow:0 18px 46px rgba(12,43,70,.15)}
+.case-study figure picture{display:block}
 .case-study figure img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
 .case-study__head--reverse figure img{aspect-ratio:16/9}
 .case-study figcaption{padding:11px 15px;color:#60748a;background:#fff;font-size:12px}
