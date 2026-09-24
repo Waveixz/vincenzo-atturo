@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Integrazione tra QGIS e Database: Guida | VA Digital</title>
+  <meta name="description" content="Come integrare QGIS e database: PostGIS, sistemi di riferimento, permessi, qualità dei dati e pubblicazione in applicazioni WebGIS.">
+  <link rel="canonical" href="https://va-digital.it/pages/guide/integrazione-qgis-database.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="Integrazione tra QGIS e database"><meta property="og:description" content="Come progettare un flusso territoriale condiviso, aggiornabile e pronto per il WebGIS."><meta property="og:url" content="https://va-digital.it/pages/guide/integrazione-qgis-database.html"><meta property="og:image" content="https://va-digital.it/assets/model-gis-neutral.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/css/styles.css?v=20260924-3"><link rel="stylesheet" href="/css/icone.css"><link rel="stylesheet" href="/css/guides.css?v=20260924">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Integrazione tra QGIS e database: come progettare il flusso","description":"Guida alla gestione condivisa dei dati territoriali con QGIS, PostGIS e applicazioni WebGIS.","image":"https://va-digital.it/assets/model-gis-neutral.webp","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Person","name":"Vincenzo Atturo"},"publisher":{"@type":"Organization","name":"VA Digital"},"mainEntityOfPage":"https://va-digital.it/pages/guide/integrazione-qgis-database.html"}</script>
+</head>
+<body class="va-model va-inner">
+  <header class="model-nav inner-nav"><div class="container nav-wrap"><a href="/" class="model-brand"><span>VA</span><b>VA DIGITAL</b></a><button class="v2-menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false"><i></i><i></i><i></i></button><nav class="v2-menu" aria-label="Navigazione principale"><a href="/">Home</a><a href="/pages/servizi.html">Servizi</a><a href="/pages/casi-studio.html">Casi studio</a><a href="/pages/guide.html" aria-current="page">Guide</a><a href="/pages/pacchetti.html">Pacchetti</a><a href="/#contatti">Parliamone</a><a class="model-contact" href="/?argomento=progetto#contatti">Contattami →</a></nav></div></header>
+  <main><article>
+    <header class="article-hero article-hero--gis"><div><p class="eyebrow">GIS · GUIDA PRATICA</p><h1>Integrazione tra QGIS e database: come progettare il flusso</h1><p>Dati territoriali condivisi, regole comuni e mappe aggiornabili senza moltiplicare file e versioni.</p></div></header>
+    <div class="article-layout">
+      <aside class="article-toc" aria-label="Indice della guida"><strong>In questa guida</strong><a href="#perche">Perché integrare</a><a href="#postgis">QGIS e PostGIS</a><a href="#regole">Identificativi e CRS</a><a href="#accessi">Modifica e permessi</a><a href="#webgis">Dal desktop al WebGIS</a><a href="#fasi">Fasi del progetto</a></aside>
+      <div class="article-content">
+        <p class="article-lead">Quando i dati geografici restano in shapefile e cartelle personali, aggiornamenti e controlli diventano fragili. Un database spaziale offre una fonte condivisa e rende possibile collegare geometrie, pratiche e informazioni gestionali.</p>
+        <h2 id="perche">Perché integrare QGIS con un database</h2><p>L'integrazione permette a più operatori di lavorare su dati coerenti, conservare lo storico, applicare controlli e interrogare grandi quantità di informazioni senza duplicare continuamente i file.</p>
+        <ul><li>Una fonte unica per geometrie e attributi.</li><li>Filtri e interrogazioni spaziali più veloci.</li><li>Permessi distinti per consultazione e modifica.</li><li>Collegamento con gestionali, dashboard e servizi web.</li></ul>
+        <h2 id="postgis">QGIS e PostGIS: ruoli complementari</h2><p>QGIS è l'ambiente di lavoro per visualizzare, analizzare e modificare i dati. PostgreSQL con PostGIS conserva tabelle e geometrie, esegue query spaziali e gestisce accessi concorrenti. Il progetto QGIS definisce stili, moduli e relazioni, mentre il database mantiene il dato centrale.</p>
+        <pre class="article-code"><code>Fonti territoriali → PostGIS → QGIS → WebGIS
+catasto / PRG       archivio   analisi   consultazione
+rilievi / pratiche  regole     editing   applicazioni</code></pre>
+        <h2 id="regole">Identificativi, geometrie e sistemi di riferimento</h2><p>Ogni oggetto deve avere un identificativo stabile. Il sistema di riferimento cartografico va scelto e documentato, evitando trasformazioni implicite. Vincoli e controlli possono impedire geometrie non valide, duplicati o attributi obbligatori mancanti.</p>
+        <div class="article-callout"><strong>Il punto critico</strong><p>La mappa mostra il dato, ma la qualità dipende dalle regole con cui quel dato viene acquisito, aggiornato e collegato agli altri archivi.</p></div>
+        <h2 id="accessi">Modifica simultanea e permessi</h2><p>I ruoli del database separano chi può leggere, inserire o modificare. Per attività delicate si possono usare tabelle di staging, procedure di validazione e tracciamento dell'utente che ha effettuato l'ultima modifica.</p>
+        <h2 id="webgis">Dal progetto desktop al WebGIS</h2><p>Non tutti gli utenti hanno bisogno di QGIS. I dati possono essere pubblicati in un'interfaccia WebGIS per ricerche, filtri, schede informative e inserimento controllato. Il database resta la base comune, evitando copie divergenti tra applicazioni.</p>
+        <h2 id="fasi">Un progetto per fasi</h2><ol><li>Censire dati, formati, qualità e responsabilità.</li><li>Definire modello dati, identificativi e relazioni.</li><li>Importare e validare un'area o un processo pilota.</li><li>Configurare QGIS, moduli e permessi.</li><li>Pubblicare le funzioni necessarie sul web.</li><li>Documentare aggiornamenti, backup e controlli.</li></ol>
+        <p>Vedi il servizio dedicato a <a href="/pages/gis-geodata.html">GIS e WebGIS</a> e il <a href="/pages/casi-studio.html#gis-territoriale">caso studio sulla consultazione di dati territoriali</a>.</p>
+      </div>
+    </div>
+  </article><section class="article-related"><div><p class="eyebrow">PROSSIMO PASSO</p><h2>Hai dati territoriali distribuiti tra file e archivi?</h2><p>Possiamo definire una struttura condivisa e un primo caso d'uso verificabile.</p></div><a class="model-btn primary" href="/?argomento=gis#contatti">Descrivi il progetto GIS →</a></section></main>
+  <footer class="model-footer"><div class="container"><span>© VA Digital · Vincenzo Atturo</span><nav class="model-footer-links" aria-label="Link nel footer"><a href="/pages/servizi.html">Servizi</a><a href="/pages/casi-studio.html">Casi studio</a><a href="/pages/guide.html">Guide</a><a href="/pages/privacy.html">Privacy</a></nav><span>Software · Data · GIS · IT</span></div></footer><script src="/js/model-menu.js" defer></script>
+</body></html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Come Centralizzare i Dati in una Dashboard | VA Digital</title>
+  <meta name="description" content="Come centralizzare i dati aziendali in una dashboard: fonti, KPI, database, aggiornamenti e controlli per informazioni affidabili.">
+  <link rel="canonical" href="https://va-digital.it/pages/guide/centralizzare-dati-dashboard.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="Come centralizzare i dati aziendali in una dashboard"><meta property="og:description" content="Dalle fonti disperse a indicatori condivisi, aggiornabili e utili alle decisioni."><meta property="og:url" content="https://va-digital.it/pages/guide/centralizzare-dati-dashboard.html"><meta property="og:image" content="https://va-digital.it/assets/model-hero.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/css/styles.css?v=20260924-3"><link rel="stylesheet" href="/css/icone.css"><link rel="stylesheet" href="/css/guides.css?v=20260924">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Come centralizzare i dati aziendali in una dashboard","description":"Guida alla progettazione di una dashboard aziendale con dati centralizzati e indicatori affidabili.","image":"https://va-digital.it/assets/model-hero.webp","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Person","name":"Vincenzo Atturo"},"publisher":{"@type":"Organization","name":"VA Digital"},"mainEntityOfPage":"https://va-digital.it/pages/guide/centralizzare-dati-dashboard.html"}</script>
+</head>
+<body class="va-model va-inner">
+  <header class="model-nav inner-nav"><div class="container nav-wrap"><a href="/" class="model-brand"><span>VA</span><b>VA DIGITAL</b></a><button class="v2-menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false"><i></i><i></i><i></i></button><nav class="v2-menu" aria-label="Navigazione principale"><a href="/">Home</a><a href="/pages/servizi.html">Servizi</a><a href="/pages/casi-studio.html">Casi studio</a><a href="/pages/guide.html" aria-current="page">Guide</a><a href="/pages/pacchetti.html">Pacchetti</a><a href="/#contatti">Parliamone</a><a class="model-contact" href="/?argomento=progetto#contatti">Contattami →</a></nav></div></header>
+  <main><article>
+    <header class="article-hero article-hero--dashboard"><div><p class="eyebrow">DATI · GUIDA PRATICA</p><h1>Come centralizzare i dati aziendali in una dashboard</h1><p>Un percorso per passare da file e sistemi separati a indicatori condivisi, leggibili e aggiornabili.</p></div></header>
+    <div class="article-layout">
+      <aside class="article-toc" aria-label="Indice della guida"><strong>In questa guida</strong><a href="#problema">Il problema</a><a href="#kpi">Definire i KPI</a><a href="#architettura">Architettura</a><a href="#qualita">Qualità e accessi</a><a href="#mvp">Partire da un MVP</a><a href="#excel">Quando basta Excel</a></aside>
+      <div class="article-content">
+        <p class="article-lead">Una dashboard è utile solo se le persone si fidano dei numeri. La centralizzazione non parte dai grafici, ma da fonti, definizioni e responsabilità condivise.</p>
+        <h2 id="problema">Quando i dati sono dispersi</h2><p>File Excel locali, gestionali, email e database possono descrivere lo stesso processo in modi diversi. Il risultato sono riconciliazioni manuali, versioni contrastanti e decisioni prese su dati già superati.</p>
+        <ul><li>Lo stesso indicatore ha valori diversi in reparti diversi.</li><li>Il report richiede raccolta e copia manuale.</li><li>Non è chiaro quando il dato è stato aggiornato.</li><li>Per rispondere a una domanda serve coinvolgere più persone.</li></ul>
+        <h2 id="kpi">Definire i KPI prima dei grafici</h2><p>Ogni indicatore deve avere un nome, una formula, una fonte, una frequenza di aggiornamento e un responsabile. “Pratiche lavorate”, per esempio, deve specificare quali stati include e in quale intervallo temporale viene calcolato.</p>
+        <div class="article-callout"><strong>Una regola utile</strong><p>Se due persone calcolano lo stesso KPI in modo diverso, la dashboard renderà più visibile il problema ma non lo risolverà.</p></div>
+        <h2 id="architettura">Una struttura semplice e scalabile</h2><pre class="article-code"><code>Fonti → Acquisizione → Database → Indicatori → Dashboard
+Excel     ETL/API       dati unici   regole        viste
+Gestionali controlli    storico      KPI           filtri</code></pre><p>Il database crea una base comune, mentre il processo ETL estrae i dati, li normalizza e li carica. La dashboard interroga questa base senza modificare le fonti originali.</p>
+        <h2 id="qualita">Aggiornamenti, qualità e permessi</h2><p>Bisogna rendere visibili data e stato dell'ultimo aggiornamento, registrare gli errori e controllare valori mancanti o duplicati. Gli accessi vanno definiti per ruolo: non tutti devono vedere o modificare le stesse informazioni.</p>
+        <h2 id="mvp">Partire da un cruscotto minimo</h2><p>Un primo rilascio efficace contiene pochi KPI decisivi, filtri realmente usati e una sola fonte affidabile. Dopo la validazione con gli utenti si aggiungono dettagli, nuovi sistemi e notifiche.</p>
+        <ol><li>Scegliere una decisione da supportare.</li><li>Definire da tre a cinque indicatori.</li><li>Collegare la fonte più affidabile.</li><li>Verificare i risultati con chi conosce il processo.</li><li>Misurare uso, tempi e richieste emerse.</li></ol>
+        <h2 id="excel">Quando può bastare Excel</h2><p>Excel resta adatto per analisi occasionali, pochi utenti e volumi contenuti. Una dashboard centralizzata diventa conveniente quando gli aggiornamenti sono frequenti, le fonti aumentano, serve uno storico oppure più ruoli devono consultare gli stessi dati.</p>
+        <p>Scopri il servizio dedicato a <a href="/pages/dashboard-dati.html">dashboard e integrazione dati</a> e il <a href="/pages/casi-studio.html#report-mail">caso studio sul monitoraggio delle email</a>.</p>
+      </div>
+    </div>
+  </article><section class="article-related"><div><p class="eyebrow">PROSSIMO PASSO</p><h2>I dati sono sparsi tra più file o applicazioni?</h2><p>Possiamo ricostruire fonti, indicatori e priorità prima di scegliere lo strumento.</p></div><a class="model-btn primary" href="/?argomento=dashboard#contatti">Parliamo dei dati →</a></section></main>
+  <footer class="model-footer"><div class="container"><span>© VA Digital · Vincenzo Atturo</span><nav class="model-footer-links" aria-label="Link nel footer"><a href="/pages/servizi.html">Servizi</a><a href="/pages/casi-studio.html">Casi studio</a><a href="/pages/guide.html">Guide</a><a href="/pages/privacy.html">Privacy</a></nav><span>Software · Data · GIS · IT</span></div></footer><script src="/js/model-menu.js" defer></script>
+</body></html>

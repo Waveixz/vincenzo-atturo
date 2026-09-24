@@ -6,6 +6,14 @@
     const menu = document.querySelector(".v2-menu");
     if (!button || !menu) return;
 
+    if (!menu.querySelector('a[href="/pages/guide.html"]')) {
+      const guideLink = document.createElement("a");
+      guideLink.href = "/pages/guide.html";
+      guideLink.textContent = "Guide";
+      const packagesLink = menu.querySelector('a[href="/pages/pacchetti.html"]');
+      menu.insertBefore(guideLink, packagesLink || menu.querySelector(".model-contact"));
+    }
+
     const close = () => {
       menu.classList.remove("open");
       button.classList.remove("open");

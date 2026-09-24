@@ -58,6 +58,41 @@
   </url>
 
   <url>
+    <loc>https://va-digital.it/pages/guide.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://va-digital.it/pages/guide/automatizzare-report-excel-python.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://va-digital.it/pages/guide/centralizzare-dati-dashboard.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://va-digital.it/pages/guide/integrazione-qgis-database.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://va-digital.it/pages/guide/software-su-misura-quando-conviene.html</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://va-digital.it/pages/privacy.html</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>yearly</changefreq>
