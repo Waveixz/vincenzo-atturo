@@ -1201,3 +1201,38 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .legal-content a{color:#087bcf;text-underline-offset:3px}
 @media(max-width:900px){.case-study__head,.case-study__head--reverse,.case-principles>.container{grid-template-columns:1fr;gap:38px}.case-study__head--reverse>div,.case-study__head--reverse figure{order:initial}.case-study__details{grid-template-columns:1fr}.case-study__details section,.case-study__details section:first-child,.case-study__details section:last-child{padding:28px 0;border-right:0;border-bottom:1px solid #dce8f3}.case-study__details section:last-child{border-bottom:0}.case-study--dark .case-study__details section{border-color:rgba(74,174,255,.22)}.legal-layout{grid-template-columns:1fr;gap:50px}.legal-index{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:0}.legal-index strong{grid-column:1/-1}.legal-index a{border-bottom:1px solid #dce8f3}}
 @media(max-width:600px){.case-hero{min-height:570px}.case-hero__content{min-height:506px}.case-hero h1{font-size:42px}.case-hero p{font-size:17px}.case-study,.case-principles{padding:58px 0}.case-study h2,.case-principles h2{font-size:36px}.case-study__details{margin-top:42px}.case-study__details h3{font-size:20px}.case-principles__list span{font-size:16px}.legal-hero{padding:140px 0 58px}.legal-hero h1{font-size:44px}.legal-hero p{font-size:17px}.legal-layout{padding-top:48px;padding-bottom:60px}.legal-index{grid-template-columns:1fr 1fr}.legal-content h2{font-size:27px}.legal-content section{padding-bottom:34px;margin-bottom:34px}}
+
+/* Immediate contact form */
+.contact-section{padding:88px 0;background:#082845}
+.contact-section .contact-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(520px,1.18fr);gap:76px;align-items:start}
+.contact-copy{padding-top:18px}
+.contact-section h2{max-width:560px;margin:12px 0 22px;font-size:clamp(38px,4.2vw,58px);line-height:1.04;letter-spacing:0}
+.contact-copy>p{max-width:540px;margin:0;color:#c8d9e8;font-size:18px;line-height:1.65}
+.contact-direct{display:flex;flex-direction:column;gap:5px;margin-top:38px;color:#8faac0;font-size:13px}
+.contact-direct a{width:fit-content;color:#fff;font-size:16px;font-weight:700;text-decoration:none}
+.contact-direct a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-form{padding:34px;background:#fff;border:1px solid #d5e5f2;border-radius:8px;color:#0a2748;box-shadow:0 22px 55px rgba(0,18,36,.24)}
+.contact-form__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-field{display:flex;min-width:0;flex-direction:column;gap:8px}
+.contact-field--wide{grid-column:1/-1}
+.contact-field label{font-size:13px;font-weight:800}
+.contact-field label span{color:#73869a;font-size:11px;font-weight:600}
+.contact-field input,.contact-field textarea{width:100%;min-width:0;padding:13px 14px;border:1px solid #c9d8e5;border-radius:6px;background:#fbfdff;color:#102033;font:inherit;line-height:1.45;transition:border-color .2s ease,box-shadow .2s ease}
+.contact-field textarea{min-height:128px;resize:vertical}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:#8293a5;opacity:1}
+.contact-field input:focus,.contact-field textarea:focus{border-color:#168ff0;outline:0;box-shadow:0 0 0 3px rgba(22,143,240,.16)}
+.contact-privacy{display:flex;align-items:flex-start;gap:10px;margin:21px 0 18px;color:#52677d;font-size:13px;line-height:1.45}
+.contact-privacy input{width:17px;height:17px;margin:1px 0 0;accent-color:#118ff3;flex:0 0 auto}
+.contact-privacy a{color:#086faf;font-weight:700}
+.contact-submit{display:flex;align-items:center;gap:18px}
+.contact-submit button{border:0;cursor:pointer;white-space:nowrap}
+.contact-submit button:disabled{cursor:wait;opacity:.7}
+.contact-submit>span{color:#6b7f92;font-size:12px;line-height:1.4}
+.contact-status{display:none;margin-top:18px;padding:12px 14px;border-radius:6px;font-size:13px;font-weight:650;line-height:1.45}
+.contact-status:not(:empty){display:block;background:#edf6fd;color:#31536e}
+.contact-form.is-success .contact-status{background:#e7f7ef;color:#17623b}
+.contact-form.is-error .contact-status{background:#fff0f0;color:#8b2d2d}
+.contact-form.is-error .contact-status a{color:inherit;font-weight:800}
+.contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@media(max-width:980px){.contact-section .contact-layout{grid-template-columns:1fr;gap:42px}.contact-copy{padding-top:0}.contact-copy>p{max-width:680px}.contact-direct{margin-top:26px}.contact-form{max-width:760px}}
+@media(max-width:600px){.contact-section{padding:58px 0}.contact-section h2{font-size:36px}.contact-copy>p{font-size:16px}.contact-form{padding:24px 20px}.contact-form__grid{grid-template-columns:1fr;gap:17px}.contact-field--wide{grid-column:auto}.contact-submit{align-items:stretch;flex-direction:column;gap:10px}.contact-submit button{width:100%}}

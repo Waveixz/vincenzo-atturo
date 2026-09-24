@@ -169,37 +169,84 @@
   }
 
   /* ===========================
-     Form contatto (mailto)
+     Form contatto
      =========================== */
   function initContactForm() {
     const form = $("#contact-form");
     if (!form) return;
     if (form.dataset.inited === "1") return;
     form.dataset.inited = "1";
+    form.dataset.loadedAt = String(Date.now());
 
-    form.addEventListener("submit", function(e){
+    const need = form.querySelector('[name="esigenza"]');
+    const topic = new URLSearchParams(window.location.search).get("argomento");
+    const topicLabels = {
+      automazione: "Vorrei migliorare un processo con un'automazione.",
+      dashboard: "Vorrei organizzare dati e report in una dashboard.",
+      gis: "Vorrei realizzare una soluzione GIS o territoriale.",
+      software: "Vorrei valutare un software o un'applicazione su misura.",
+      progetto: "Vorrei confrontarmi su un nuovo progetto digitale."
+    };
+    if (need && topicLabels[topic] && !need.value) need.value = topicLabels[topic];
+
+    form.addEventListener("submit", async function(e){
       e.preventDefault();
+      if (!form.reportValidity()) return;
 
-      const nome = form.querySelector('[name="nome"]')?.value || '';
-      const email = form.querySelector('[name="email"]')?.value || '';
-      const servizio = form.querySelector('[name="servizio"]')?.value || '';
-      const budget = form.querySelector('[name="budget"]')?.value || '';
-      const tempistica = form.querySelector('[name="tempistica"]')?.value || '';
-      const messaggio = form.querySelector('[name="messaggio"]')?.value || '';
+      const status = $(".contact-status", form);
+      const button = $('button[type="submit"]', form);
+      const honeypot = form.querySelector('[name="_honey"]');
 
-      const subject = encodeURIComponent("Richiesta dal sito VA Digital");
-      const body = encodeURIComponent(
-`Nome: ${nome}
-Email: ${email}
-Servizio: ${servizio}
-Budget: ${budget}
-Tempistica: ${tempistica}
+      if (honeypot?.value) {
+        form.reset();
+        if (status) status.textContent = "Richiesta inviata. Grazie, ti risponderò al più presto.";
+        return;
+      }
 
-Messaggio:
-${messaggio}
-`);
+      if (Date.now() - Number(form.dataset.loadedAt) < 1500) {
+        if (status) status.textContent = "Attendi un momento e riprova.";
+        return;
+      }
 
-      window.location.href = `mailto:atturo.vincenzo@gmail.com?subject=${subject}&body=${body}`;
+      const originalLabel = button?.textContent || "Invia la richiesta →";
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 15000);
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Invio in corso...";
+      }
+      form.classList.remove("is-success", "is-error");
+      if (status) status.textContent = "Invio della richiesta in corso.";
+
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        delete data.privacy;
+        delete data._honey;
+
+        const response = await fetch("https://formsubmit.co/ajax/atturo.vincenzo@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(data),
+          signal: controller.signal
+        });
+
+        if (!response.ok) throw new Error("Invio non riuscito");
+
+        form.reset();
+        form.dataset.loadedAt = String(Date.now());
+        form.classList.add("is-success");
+        if (status) status.textContent = "Richiesta inviata. Grazie, ti risponderò al più presto.";
+      } catch (error) {
+        form.classList.add("is-error");
+        if (status) status.innerHTML = 'Non è stato possibile inviare la richiesta. Puoi scrivere a <a href="mailto:atturo.vincenzo@gmail.com">atturo.vincenzo@gmail.com</a>.';
+      } finally {
+        window.clearTimeout(timeout);
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalLabel;
+        }
+      }
     });
   }
 
