@@ -32,21 +32,11 @@ button{font:inherit}
 .share-status{min-height:22px;margin:12px 0 0;color:#9fd2f7;font-size:13px}
 .profile-services{padding:78px 0;background:var(--white)}
 .profile-services__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
-.profile-services h2,.profile-work h2,.profile-share h2{margin:12px 0 0;font-size:clamp(34px,5vw,54px);line-height:1.02;letter-spacing:0}
+.profile-services h2,.profile-share h2{margin:12px 0 0;font-size:clamp(34px,5vw,54px);line-height:1.02;letter-spacing:0}
 .service-lines{border-top:1px solid var(--line)}
 .service-lines>div{display:grid;grid-template-columns:52px 1fr;gap:15px;padding:20px 2px;border-bottom:1px solid var(--line);align-items:center}
 .service-lines b{color:var(--blue);font-size:12px}
 .service-lines span{font-size:18px;font-weight:750}
-.profile-work{padding:78px 0;background:var(--soft)}
-.profile-work__head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:34px}
-.profile-work__head>a{color:var(--blue-dark);font-weight:800;text-decoration:none;white-space:nowrap}
-.profile-work__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.profile-work__grid>a{overflow:hidden;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:#fff;text-decoration:none}
-.profile-work picture{display:block;aspect-ratio:16/9;overflow:hidden;background:#dfeaf3}
-.profile-work img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .2s ease}
-.profile-work a:hover img{transform:scale(1.02)}
-.profile-work__grid span{display:block;margin:20px 22px 0;color:var(--blue-dark);font-size:11px;font-weight:850}
-.profile-work h3{margin:8px 22px 22px;font-size:22px;line-height:1.2;letter-spacing:0}
 .profile-share{padding:78px 0;color:#fff;background:var(--navy)}
 .profile-share__grid{display:grid;grid-template-columns:1fr 300px;gap:76px;align-items:center}
 .profile-share p:not(.profile-label){max-width:620px;color:#b9cedd;font-size:17px;line-height:1.7}
@@ -56,6 +46,6 @@ button{font:inherit}
 .qr-panel figcaption{margin-top:10px;color:#506a80;font-size:12px;overflow-wrap:anywhere}
 .card-footer{display:flex;justify-content:space-between;gap:24px;padding:24px max(20px,calc((100% - 1080px)/2));color:#91aabd;background:var(--navy-deep);font-size:12px}
 .card-footer a{color:#bcd0df;text-decoration:none}
-@media(max-width:760px){.profile-shell{width:min(100% - 32px,1080px)}.profile-hero,.profile-hero__content{min-height:760px}.profile-hero__content{padding-top:104px}.profile-hero h1{font-size:62px}.contact-actions{grid-template-columns:1fr 1fr}.profile-services__grid,.profile-share__grid{grid-template-columns:1fr;gap:42px}.profile-work__head{align-items:flex-start;flex-direction:column;gap:16px}.qr-panel{width:min(280px,100%);margin:auto}.profile-services,.profile-work,.profile-share{padding:60px 0}}
-@media(max-width:480px){.card-brand b{font-size:12px}.icon-command{padding:8px 12px}.profile-hero,.profile-hero__content{min-height:720px}.profile-hero h1{font-size:54px}.profile-role{font-size:17px}.profile-summary{font-size:15px}.contact-actions{margin-top:25px}.contact-actions a{min-height:72px;padding:12px}.profile-secondary{display:grid;grid-template-columns:1fr 1fr}.primary-command,.secondary-command{padding:11px 12px;font-size:13px}.profile-work__grid{grid-template-columns:1fr}.card-footer{align-items:flex-start;flex-direction:column;gap:8px}}
+@media(max-width:760px){.profile-shell{width:min(100% - 32px,1080px)}.profile-hero,.profile-hero__content{min-height:760px}.profile-hero__content{padding-top:104px}.profile-hero h1{font-size:62px}.contact-actions{grid-template-columns:1fr 1fr}.profile-services__grid,.profile-share__grid{grid-template-columns:1fr;gap:42px}.qr-panel{width:min(280px,100%);margin:auto}.profile-services,.profile-share{padding:60px 0}}
+@media(max-width:480px){.card-brand b{font-size:12px}.icon-command{padding:8px 12px}.profile-hero,.profile-hero__content{min-height:720px}.profile-hero h1{font-size:54px}.profile-role{font-size:17px}.profile-summary{font-size:15px}.contact-actions{margin-top:25px}.contact-actions a{min-height:72px;padding:12px}.profile-secondary{display:grid;grid-template-columns:1fr 1fr}.primary-command,.secondary-command{padding:11px 12px;font-size:13px}.card-footer{align-items:flex-start;flex-direction:column;gap:8px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}

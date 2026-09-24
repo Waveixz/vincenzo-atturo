@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:Atturo;Vincenzo;;;
+FN;CHARSET=UTF-8:Vincenzo Atturo
+ORG;CHARSET=UTF-8:VA Digital
+TITLE;CHARSET=UTF-8:IT Manager e Digital Solutions Developer
+TEL;TYPE=CELL:+393349916514
+EMAIL;TYPE=INTERNET:atturo.vincenzo@gmail.com
+URL:https://va-digital.it/
+NOTE;CHARSET=UTF-8:Software, automazioni, dashboard, dati e GIS su misura.
+END:VCARD
