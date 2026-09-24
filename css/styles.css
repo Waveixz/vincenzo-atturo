@@ -1073,6 +1073,10 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 @media(max-width:560px){.seo-detail{padding:52px 0}.seo-detail h2{font-size:34px}.seo-detail-grid article{padding:24px}.model-footer-links{justify-content:flex-start;gap:12px 18px}}
 
 /* Dedicated service pages */
+.model-category{display:flex;width:100%;align-items:center;gap:18px;color:#0a2748;text-decoration:none}
+.model-category h3{transition:color .2s ease}
+.model-category:hover h3{color:#087bcf}
+.model-category:focus-visible{outline:3px solid rgba(17,143,243,.35);outline-offset:6px;border-radius:4px}
 .model-gis-bg,.package-bg{background-image:url('/assets/model-gis-neutral.jpg')}
 .service-card-link{display:block;margin-top:22px;color:#087bcf;font-size:14px;font-weight:750;text-decoration:none}
 .service-card-link:hover{text-decoration:underline;text-underline-offset:4px}
