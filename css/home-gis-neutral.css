@@ -3,3 +3,12 @@
 .va-model .model-gis-bg {
   background-image: url('/assets/model-gis-neutral.webp');
 }
+
+.model-project-grid--visual article{padding:0;overflow:hidden;border-radius:8px}
+.model-project-grid--visual article>a{display:flex;height:100%;flex-direction:column;color:inherit;text-decoration:none}
+.model-project-grid--visual picture{display:block;overflow:hidden;background:#e7eef5;aspect-ratio:16/10}
+.model-project-grid--visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .25s ease}
+.model-project-grid--visual article:hover img{transform:scale(1.02)}
+.model-project-grid--visual article>a>div{display:flex;flex:1;flex-direction:column;padding:25px}
+.model-project-grid--visual h3{margin:12px 0}
+.model-project-grid--visual p{margin:0}
