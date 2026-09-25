@@ -1254,3 +1254,10 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 .contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 @media(max-width:980px){.contact-section .contact-layout{grid-template-columns:1fr;gap:42px}.contact-copy{padding-top:0}.contact-copy>p{max-width:680px}.contact-direct{margin-top:26px}.contact-form{max-width:760px}}
 @media(max-width:600px){.contact-section{padding:58px 0}.contact-section h2{font-size:36px}.contact-copy>p{font-size:16px}.contact-form{padding:24px 20px}.contact-form__grid{grid-template-columns:1fr;gap:17px}.contact-field--wide{grid-column:auto}.contact-submit{align-items:stretch;flex-direction:column;gap:10px}.contact-submit button{width:100%}}
+
+/* Accessibility refinements: semantic helper and WCAG AA contrast. */
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.model-btn.primary{background:#0873c2}
+.model-intro .model-kicker,.model-solution .model-kicker,.model-data .model-kicker,.model-projects .model-kicker,.guide-preview .model-kicker,.model-tech .model-kicker{color:#076db8}
+.model-project-grid span{color:#076db8}
+.contact-field label span,.contact-submit>span{color:#5f7488}

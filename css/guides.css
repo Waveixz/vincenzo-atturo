@@ -28,11 +28,11 @@
 .guide-preview{padding:82px 0;background:#fff;border-top:1px solid #e1ebf4}
 .guide-preview__head{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:36px}
 .guide-preview h2{max-width:700px;margin:10px 0 0;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:0}
-.guide-preview__head>a{color:#087bcf;font-weight:800;text-decoration:none;white-space:nowrap}
+.guide-preview__head>a{color:#076db8;font-weight:800;text-decoration:none;white-space:nowrap}
 .guide-preview__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .guide-preview__grid a{display:flex;min-height:240px;flex-direction:column;padding:24px;border:1px solid #dce8f3;border-radius:8px;color:#173651;text-decoration:none}
 .guide-preview__grid a:hover{border-color:#79bdf0}
-.guide-preview__grid span{color:#168ff0;font-size:11px;font-weight:800}
+.guide-preview__grid span{color:#076db8;font-size:11px;font-weight:800}
 .guide-preview__grid h3{margin:46px 0 12px;font-size:20px;line-height:1.24;letter-spacing:0}
 .guide-preview__grid p{margin:0;color:#60748a;font-size:14px;line-height:1.55}
 .article-hero{position:relative;padding:154px 0 76px;color:#fff;background-color:#082845;background-position:center;background-size:cover;overflow:hidden}
