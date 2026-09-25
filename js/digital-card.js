@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const url = "https://va-digital.it/vincenzo-atturo/";
+  const url = "https://va-digital.it/vincenzo-atturo/?v=20260925";
   const shareButton = document.querySelector("#share-card");
   const copyButton = document.querySelector("#copy-link");
   const status = document.querySelector("#share-status");
