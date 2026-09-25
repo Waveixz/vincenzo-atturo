@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const url = "https://va-digital.it/vincenzo-atturo/?v=20260925";
+  const url = "https://va-digital.it/vincenzo-atturo/?v=20260925-2";
   const shareButton = document.querySelector("#share-card");
   const copyButton = document.querySelector("#copy-link");
   const status = document.querySelector("#share-status");
@@ -30,11 +30,7 @@
     }
 
     try {
-      await navigator.share({
-        title: "Vincenzo Atturo | VA Digital",
-        text: "Software, automazioni, dashboard, dati e GIS su misura.",
-        url
-      });
+      await navigator.share({ url });
     } catch (error) {
       if (error.name !== "AbortError") await copyLink();
     }
