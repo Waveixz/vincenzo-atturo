@@ -1,0 +1,681 @@
+:root {
+    --hub-bg: #f5f6f8;
+    --hub-panel: #ffffff;
+    --hub-text: #344054;
+    --hub-title: #101828;
+    --hub-muted: #667085;
+    --hub-line: #e1e5ea;
+    --hub-hover: #f2f4f7;
+    --hub-soft: #f8f9fb;
+}
+
+/* ---------- APP ---------- */
+.stApp {
+    background: var(--hub-bg);
+    color: var(--hub-text);
+}
+
+.block-container {
+    max-width: none !important;
+    padding: 18px 28px 36px !important;
+}
+
+#MainMenu,
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"] {
+    display: none !important;
+}
+
+/* Il comando nativo per chiudere/riaprire la sidebar resta disponibile. */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ---------- SIDEBAR ---------- */
+[data-testid="stSidebar"] {
+    background: #ffffff !important;
+    border-right: 1px solid var(--hub-line) !important;
+    min-width: 390px !important;
+    max-width: 390px !important;
+}
+
+[data-testid="stSidebarContent"] {
+    padding: 20px 24px 24px !important;
+    overflow-y: auto !important;
+}
+
+/* Evita che Streamlit distribuisca verticalmente le voci. */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    gap: 0 !important;
+    justify-content: flex-start !important;
+    align-content: flex-start !important;
+}
+
+/* ---------- BRAND ---------- */
+.hub-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 22px;
+}
+
+.hub-logo {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--hub-line);
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(16, 24, 40, 0.04);
+    color: var(--hub-title);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.hub-brand-title {
+    color: var(--hub-title);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.hub-brand-subtitle {
+    margin-top: 4px;
+    color: var(--hub-muted);
+    font-size: 15px;
+}
+
+.hub-divider {
+    height: 1px;
+    margin: 26px 3px 22px;
+    background: var(--hub-line);
+}
+
+/* ---------- BUTTON RESET ---------- */
+[data-testid="stSidebar"] .stButton,
+[data-testid="stSidebar"] .stLinkButton {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+[data-testid="stSidebar"] .stButton > button,
+[data-testid="stSidebar"] .stLinkButton > a {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 13px !important;
+    box-shadow: none !important;
+    color: var(--hub-text) !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+[data-testid="stSidebar"] .stButton > button p,
+[data-testid="stSidebar"] .stButton > button span,
+[data-testid="stSidebar"] .stLinkButton > a p,
+[data-testid="stSidebar"] .stLinkButton > a span {
+    color: inherit !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ---------- DASHBOARD ---------- */
+div.st-key-nav_home button {
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 0 18px !important;
+    border: 1px solid transparent !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    color: var(--hub-text) !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+
+div.st-key-nav_home button span[data-testid="stIconMaterial"] {
+    width: 29px !important;
+    min-width: 29px !important;
+    font-size: 29px !important;
+}
+
+div.st-key-nav_home button[kind="primary"] {
+    background: var(--hub-hover) !important;
+    border-color: var(--hub-title) !important;
+    color: var(--hub-title) !important;
+    font-weight: 800 !important;
+}
+
+div.st-key-nav_home button:hover {
+    background: var(--hub-hover) !important;
+    border-color: var(--hub-title) !important;
+}
+
+/* ---------- EXPANDER: MODULI + SISTEMA ---------- */
+[data-testid="stSidebar"] [data-testid="stExpander"] {
+    margin: 0 0 12px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpander"] details {
+    border: 0 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpander"] summary {
+    min-height: 68px !important;
+    padding: 0 18px !important;
+    border: 1px solid var(--hub-line) !important;
+    border-radius: 18px !important;
+    background: var(--hub-soft) !important;
+    color: var(--hub-text) !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpander"] summary:hover {
+    background: var(--hub-hover) !important;
+}
+
+/* Icone Moduli e Sistema: stessa dimensione, più leggibili. */
+[data-testid="stSidebar"] [data-testid="stExpander"] summary span[data-testid="stIconMaterial"] {
+    width: 27px !important;
+    min-width: 27px !important;
+    height: 27px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 27px !important;
+    line-height: 27px !important;
+    color: var(--hub-text) !important;
+}
+
+/* Freccia dell'expander resta a destra. */
+[data-testid="stSidebar"] [data-testid="stExpander"] summary svg {
+    margin-left: auto !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] {
+    padding: 8px 0 2px !important;
+}
+
+/* ---------- VOCI MODULI / IMPOSTAZIONI ---------- */
+/* Tutte partono verso SINISTRA: niente rientro centrale. */
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton {
+    margin: 0 0 5px !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a {
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 0 18px !important;
+    border: 1px solid transparent !important;
+    border-radius: 14px !important;
+    background: transparent !important;
+    color: var(--hub-text) !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+}
+
+/* Icone delle voci: tutte sulla stessa verticale sinistra. */
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] span[data-testid="stIconMaterial"] {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 28px !important;
+    line-height: 28px !important;
+    color: var(--hub-text) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button:hover,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a:hover,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button[kind="primary"] {
+    background: var(--hub-hover) !important;
+    border-color: var(--hub-line) !important;
+    color: var(--hub-text) !important;
+}
+
+/* ---------- INFO ---------- */
+.hub-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 18px 0 0;
+    padding: 16px;
+    border: 1px solid var(--hub-line);
+    border-radius: 17px;
+    background: #ffffff;
+}
+
+.hub-info-icon {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--hub-hover);
+    color: var(--hub-text);
+    font-size: 22px;
+}
+
+.hub-info-title {
+    color: var(--hub-title);
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.hub-info-version {
+    margin-top: 5px;
+    color: var(--hub-muted);
+    font-size: 12px;
+}
+
+.hub-info-text {
+    margin-top: 8px;
+    color: var(--hub-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ---------- MAIN ---------- */
+.hub-topbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+    border: 1px solid var(--hub-line);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+.hub-topbar-title {
+    color: var(--hub-title);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.hub-topbar-subtitle {
+    margin-top: 5px;
+    color: var(--hub-muted);
+    font-size: 13px;
+}
+
+.hub-chip {
+    padding: 9px 12px;
+    border: 1px solid var(--hub-line);
+    border-radius: 12px;
+    color: var(--hub-muted);
+    font-size: 12px;
+}
+
+.module-card,
+.source-card {
+    min-height: 150px;
+    padding: 20px;
+    border: 1px solid var(--hub-line);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.module-card-code {
+    color: var(--hub-muted);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.module-card-title,
+.source-title {
+    margin-top: 8px;
+    color: var(--hub-title);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.module-card-description,
+.source-meta {
+    margin-top: 8px;
+    color: var(--hub-muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.hero {
+    padding: 24px;
+    margin-bottom: 18px;
+    border: 1px solid var(--hub-line);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.hero h1 {
+    margin: 0;
+    color: var(--hub-title);
+    font-size: 28px;
+}
+
+.hero p {
+    margin: 8px 0 0;
+    color: var(--hub-muted);
+}
+
+.section-title {
+    margin: 22px 0 10px;
+    color: var(--hub-title);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.empty-state {
+    padding: 70px 24px;
+    text-align: center;
+    border: 1px dashed #d0d5dd;
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+.empty-state h2 {
+    margin: 10px 0 4px;
+    color: var(--hub-title);
+}
+
+.empty-state p {
+    margin: 0;
+    color: var(--hub-muted);
+}
+
+.empty-icon {
+    font-size: 32px;
+}
+
+@media (max-width: 900px) {
+    [data-testid="stSidebar"] {
+        min-width: 330px !important;
+        max-width: 330px !important;
+    }
+}
+
+/* ==========================================================
+   v3.1 — ALLINEAMENTO NAVIGAZIONE A SINISTRA
+   Forza anche i wrapper interni generati da Streamlit.
+   ========================================================== */
+
+/* Expander Moduli / Sistema: contenuto sempre a sinistra */
+[data-testid="stSidebar"] [data-testid="stExpander"] summary {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpander"] summary > div,
+[data-testid="stSidebar"] [data-testid="stExpander"] summary > span:not([data-testid="stIconMaterial"]) {
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+/* Pulsanti/link dei moduli: forza il contenuto sul lato sinistro */
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+}
+
+/* Streamlit inserisce uno o più wrapper interni: anche loro devono occupare
+   tutta la larghezza e partire da sinistra. */
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button > div,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a > div,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button [data-testid="stMarkdownContainer"],
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a [data-testid="stMarkdownContainer"] {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stButton > button p,
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] .stLinkButton > a p {
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Icona fissa sulla stessa colonna per tutte le voci */
+[data-testid="stSidebar"] [data-testid="stExpanderDetails"] span[data-testid="stIconMaterial"] {
+    flex: 0 0 28px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Anche la Dashboard resta esplicitamente a sinistra */
+div.st-key-nav_home button,
+div.st-key-nav_home button > div,
+div.st-key-nav_home button [data-testid="stMarkdownContainer"] {
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+
+/* =========================================================
+   VINCENZO HUB 3.2 — COMPACT ICON RAIL
+   ========================================================= */
+
+/* Usiamo il nostro toggle: il collapse nativo di Streamlit viene nascosto
+   perché chiude completamente la sidebar e non può mostrare una icon rail. */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"]{
+    display:none!important;
+}
+
+/* Il cambio larghezza deve essere immediato e non lasciare una fascia vuota. */
+[data-testid="stSidebar"]{
+    transition:width .16s ease,min-width .16s ease,max-width .16s ease!important;
+    overflow:hidden!important;
+}
+[data-testid="stSidebarContent"]{
+    transition:padding .16s ease!important;
+}
+
+/* Pulsante toggle e pulsanti icon-only */
+div.st-key-sidebar_expand button,
+div.st-key-sidebar_collapse button,
+div.st-key-compact_home button,
+div[class*="st-key-compact_"] button{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    margin:0!important;
+}
+
+/* Rail compatta */
+div.st-key-sidebar_expand{
+    margin:0 0 10px!important;
+}
+div.st-key-sidebar_expand button{
+    width:54px!important;
+    height:42px!important;
+    min-height:42px!important;
+    border-radius:12px!important;
+    border:1px solid var(--hub-line)!important;
+    background:#fff!important;
+}
+div.st-key-sidebar_expand button:hover{
+    background:var(--hub-hover)!important;
+}
+
+.compact-logo{
+    width:54px;
+    height:54px;
+    margin:0 0 14px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--hub-line);
+    border-radius:15px;
+    background:#fff;
+    color:var(--hub-title);
+    font-size:17px;
+    font-weight:800;
+}
+
+div.st-key-compact_home,
+div[class*="st-key-compact_"]{
+    margin:0 0 6px!important;
+}
+
+div.st-key-compact_home button,
+div[class*="st-key-compact_"] button{
+    width:54px!important;
+    height:52px!important;
+    min-height:52px!important;
+    border-radius:13px!important;
+    border:1px solid transparent!important;
+    background:transparent!important;
+    color:var(--hub-text)!important;
+}
+
+div.st-key-compact_home button:hover,
+div[class*="st-key-compact_"] button:hover,
+div.st-key-compact_home button[kind="primary"],
+div[class*="st-key-compact_"] button[kind="primary"]{
+    background:var(--hub-hover)!important;
+    border-color:var(--hub-line)!important;
+    color:var(--hub-title)!important;
+}
+
+div.st-key-compact_home span[data-testid="stIconMaterial"],
+div[class*="st-key-compact_"] span[data-testid="stIconMaterial"],
+div.st-key-sidebar_expand span[data-testid="stIconMaterial"],
+div.st-key-sidebar_collapse span[data-testid="stIconMaterial"]{
+    width:26px!important;
+    min-width:26px!important;
+    height:26px!important;
+    font-size:26px!important;
+    line-height:26px!important;
+    margin:0!important;
+}
+
+.compact-separator{
+    width:54px;
+    height:1px;
+    margin:9px 0 11px;
+    background:var(--hub-line);
+}
+.compact-system-gap{
+    margin-top:12px;
+}
+
+/* Toggle della sidebar estesa */
+div.st-key-sidebar_collapse{
+    margin-top:4px!important;
+}
+div.st-key-sidebar_collapse button{
+    width:46px!important;
+    height:42px!important;
+    min-height:42px!important;
+    border-radius:12px!important;
+    border:1px solid var(--hub-line)!important;
+    background:#fff!important;
+}
+div.st-key-sidebar_collapse button:hover{
+    background:var(--hub-hover)!important;
+}
+
+/* La brand dentro la colonna non deve aggiungere margine eccessivo. */
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] .hub-brand{
+    margin-bottom:18px!important;
+}
+
+/* Tooltip/hover nativi forniscono il nome quando il rail è compatto. */
+
+
+/* =========================================================
+   FIX v3.2.1 — la icon rail deve essere SEMPRE visibile
+   anche se il browser aveva memorizzato la sidebar nativa
+   come "collapsed".
+   ========================================================= */
+
+/* Neutralizza completamente lo stato collapsed nativo di Streamlit. */
+section[data-testid="stSidebar"],
+[data-testid="stSidebar"]{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    transform:none!important;
+    translate:none!important;
+    left:0!important;
+    margin-left:0!important;
+    position:fixed!important;
+    top:0!important;
+    bottom:0!important;
+    z-index:999999!important;
+    background:#fff!important;
+}
+
+section[data-testid="stSidebar"] > div,
+[data-testid="stSidebarContent"]{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    transform:none!important;
+    translate:none!important;
+    left:0!important;
+    margin-left:0!important;
+}
+
+/* In modalità compatta tutti i componenti devono rimanere dentro gli 86px. */
+div.st-key-sidebar_expand,
+div.st-key-compact_home,
+div[class*="st-key-compact_"]{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:54px!important;
+    max-width:54px!important;
+    margin-left:0!important;
+    margin-right:0!important;
+}
+
+/* Anche le icone Material non possono essere nascoste da regole native. */
+div.st-key-sidebar_expand span[data-testid="stIconMaterial"],
+div.st-key-compact_home span[data-testid="stIconMaterial"],
+div[class*="st-key-compact_"] span[data-testid="stIconMaterial"]{
+    display:inline-flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    color:#344054!important;
+}
+
+/* Niente controllo collapse nativo: il nostro » / « è l'unico comando. */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"]{
+    display:none!important;
+}

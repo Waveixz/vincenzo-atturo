@@ -1,0 +1,165 @@
+{
+  "version": 2,
+  "modules": [
+    {
+      "id": "gis",
+      "name": "GIS & Mappe",
+      "icon": "GIS",
+      "description": "Progetti QGIS, WebGIS, mappe pubblicate, servizi e dataset territoriali.",
+      "features": [
+        "Progetti QGIS",
+        "WaveGIS e WebGIS",
+        "Mappe pubblicate",
+        "Dataset e servizi"
+      ],
+      "enabled": true,
+      "order": 10,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.gis.module",
+      "system": false
+    },
+    {
+      "id": "social_analytics",
+      "name": "Marketing & Analytics",
+      "icon": "SOC",
+      "description": "Storico manuale di visibilità, contenuti, interazioni e contatti ricevuti.",
+      "features": [
+        "KPI per canale",
+        "Storico risultati",
+        "Contatti ricevuti",
+        "Note contenuti"
+      ],
+      "enabled": true,
+      "order": 20,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.social_analytics.module",
+      "system": false
+    },
+    {
+      "id": "documenti",
+      "name": "Documenti",
+      "icon": "DOC",
+      "description": "Archivio operativo per contratti, preventivi, documenti cliente e file di progetto.",
+      "features": [
+        "Archivio documenti",
+        "Caricamento file",
+        "Kit commerciale",
+        "Ricerca e riferimenti"
+      ],
+      "enabled": true,
+      "order": 40,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.documenti.module",
+      "system": false
+    },
+    {
+      "id": "it_tecnologia",
+      "name": "Tecnologia & Infrastruttura",
+      "icon": "IT",
+      "description": "Aggiornamenti tecnici, infrastruttura, rete, server, Docker e strumenti di lavoro.",
+      "features": [
+        "Aggiornamento Tech",
+        "Rete e Wi-Fi",
+        "Server / Docker / NAS",
+        "Hardware e software"
+      ],
+      "enabled": true,
+      "order": 50,
+      "renderer": "it_tech",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.it_tecnologia.module",
+      "system": true
+    },
+    {
+      "id": "agenda",
+      "name": "Agenda",
+      "icon": "CAL",
+      "description": "Calendario operativo giornaliero, settimanale e mensile collegato a clienti e progetti.",
+      "features": [
+        "Calendario",
+        "Fasce orarie",
+        "Appuntamenti",
+        "Collegamenti cliente/progetto"
+      ],
+      "enabled": true,
+      "order": 55,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.agenda.module",
+      "system": false
+    },
+    {
+      "id": "contabilita",
+      "name": "Contabilità",
+      "icon": "EUR",
+      "description": "Incassi, costi, scadenze e margini collegati a clienti e commesse.",
+      "features": [
+        "Incassi",
+        "Costi",
+        "Scadenze",
+        "Margini"
+      ],
+      "enabled": true,
+      "order": 56,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.contabilita.module",
+      "system": false
+    },
+    {
+      "id": "clienti_progetti",
+      "name": "Clienti & Progetti",
+      "icon": "CRM",
+      "description": "Anagrafiche clienti, CRM, commesse, attività e pagamenti collegati.",
+      "features": [
+        "Clienti",
+        "Progetti",
+        "CRM",
+        "Attività"
+      ],
+      "enabled": true,
+      "order": 60,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.clienti_progetti.module",
+      "system": false
+    },
+    {
+      "id": "utility",
+      "name": "Utility",
+      "icon": "UTL",
+      "description": "Collegamenti, note veloci e calcolatori per stime e automazioni.",
+      "features": [
+        "Calcolatori",
+        "Conversioni",
+        "Tool rapidi",
+        "Preferiti"
+      ],
+      "enabled": true,
+      "order": 70,
+      "renderer": "generic",
+      "open_mode": "internal",
+      "allow_new_tab": true,
+      "url": "",
+      "entrypoint": "modules.utility.module",
+      "system": false
+    }
+  ]
+}

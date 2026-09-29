@@ -1,0 +1,18 @@
+{
+  "clients": [],
+  "projects": [],
+  "tasks": [],
+  "documents": [],
+  "gis_resources": [],
+  "it_assets": [],
+  "social_snapshots": [],
+  "quick_links": [
+    {
+      "id": "va-digital-site",
+      "name": "Sito VA Digital",
+      "url": "https://va-digital.it/",
+      "category": "VA Digital"
+    }
+  ],
+  "notes": []
+}
