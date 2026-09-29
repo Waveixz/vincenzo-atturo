@@ -1468,3 +1468,14 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 
 @media(max-width:980px){.mk-hero-grid{grid-template-columns:1fr;gap:30px}.mk-copy h1{max-width:760px}.mk-hub-visual,.mk-wave-visual{width:min(100%,780px);margin-inline:auto}.mk-benefits{gap:14px}}
 @media(max-width:650px){.mk-hero{padding-top:104px}.mk-copy h1{font-size:39px}.mk-benefits{grid-template-columns:1fr}.mk-hub-visual,.mk-wave-visual{height:330px}.mk-hub-phone{width:29%;height:59%;top:34%}.mk-wave-visual{padding:10px}.mk-wave-app{grid-template-columns:68px 1fr}.mk-wave-app aside{padding:9px 6px}.mk-wave-app aside>strong{font-size:11px}.mk-wave-app aside>small,.mk-wave-app aside>i:not(.active){display:none}.mk-layers{left:8px;top:8px;width:135px;padding:8px}.mk-layers h3{font-size:10px}.mk-layers span{font-size:7px;padding:3px 0}.mk-popup{right:7px;top:auto;bottom:36px;width:130px;padding:8px}.mk-popup h3{font-size:10px}.mk-tools b:nth-child(n+4),.mk-bases{display:none}}
+
+/* Visuali forniti per le pagine Hub e WaveGIS */
+.mk-exact-visual{display:flex;height:500px;margin:0;padding:0;flex-direction:column;justify-content:center;overflow:hidden;background:#eef7fb}
+.mk-exact-visual picture{display:flex;min-height:0;flex:1;align-items:center;justify-content:center;overflow:hidden}
+.mk-exact-visual img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.mk-exact-visual figcaption{padding:8px 13px;color:#62798d;background:#fff;font-size:10px;text-align:center}
+.pv3-screen--exact picture{display:block}
+.pv3-screen--exact img{width:100%;height:auto;max-height:620px;object-fit:contain;background:#eef7fb}
+.product-v3 .pv3-hero .model-btn.ghost{border-color:#168ff0;background:#fff;color:#0a5d9e}
+@media(max-width:980px){.mk-exact-visual{height:560px}}
+@media(max-width:650px){.mk-exact-visual{height:390px}.mk-exact-visual figcaption{font-size:9px}}
