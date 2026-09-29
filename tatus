@@ -1,0 +1,90 @@
+[33mc263cd2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Aggiorna Hub Gestionale e WaveGIS con nuove anteprime
+ assets/hub-gestionale-demo.png                     |  Bin [31m0[m -> [32m1705617[m bytes
+ assets/wavegis-demo.png                            |  Bin [31m0[m -> [32m2363222[m bytes
+ css/styles.css                                     |   11 [32m+[m
+ index.html                                         |    2 [32m+[m[31m-[m
+ migliorie_del _sito.docx                           |  Bin [31m13094[m -> [32m13222[m bytes
+ .../01_scheda_presentazione_va_digital.docx        |  Bin [31m0[m -> [32m39463[m bytes
+ .../01_scheda_presentazione_va_digital.pdf         |  Bin [31m0[m -> [32m56475[m bytes
+ .../02_modulo_requisiti_cliente.docx               |  Bin [31m0[m -> [32m40153[m bytes
+ .../03_preventivo_proposta_tecnica.docx            |  Bin [31m0[m -> [32m40056[m bytes
+ output/commercial-kit/04_avvio_progetto.docx       |  Bin [31m0[m -> [32m30975[m bytes
+ output/commercial-kit/05_report_stato_lavori.docx  |  Bin [31m0[m -> [32m30917[m bytes
+ output/commercial-kit/06_consegna_collaudo.docx    |  Bin [31m0[m -> [32m30924[m bytes
+ .../commercial-kit/07_assistenza_manutenzione.docx |  Bin [31m0[m -> [32m30974[m bytes
+ .../08_carta_intestata_va_digital.docx             |  Bin [31m0[m -> [32m29980[m bytes
+ .../commercial-kit/08_firma_email_va_digital.html  |   29 [32m+[m
+ .../09_presentazione_breve_va_digital.pdf          |  591 [32m+++++++++[m
+ .../10_contratto_incarico_servizi_digitali.docx    |  Bin [31m0[m -> [32m35160[m bytes
+ .../10_contratto_incarico_servizi_digitali.pdf     |  Bin [31m0[m -> [32m92653[m bytes
+ .../11_accordo_trattamento_dati_art28.docx         |  Bin [31m0[m -> [32m42258[m bytes
+ .../11_accordo_trattamento_dati_art28.pdf          |  Bin [31m0[m -> [32m89166[m bytes
+ .../12_richiesta_variazione_progetto.docx          |  Bin [31m0[m -> [32m40245[m bytes
+ .../12_richiesta_variazione_progetto.pdf           |  Bin [31m0[m -> [32m89013[m bytes
+ output/commercial-kit/13_verbale_riunione.docx     |  Bin [31m0[m -> [32m40375[m bytes
+ output/commercial-kit/13_verbale_riunione.pdf      |  Bin [31m0[m -> [32m97985[m bytes
+ output/commercial-kit/LEGGIMI.txt                  |   43 [32m+[m
+ output/kit-commerciale-va-digital.zip              |  Bin [31m0[m -> [32m797743[m bytes
+ .../biglietto-da-visita-vincenzo-atturo-stampa.pdf |  Bin [31m0[m -> [32m92801[m bytes
+ ...-da-visita-vincenzo-atturo-verticale-stampa.pdf |  Bin [31m0[m -> [32m92831[m bytes
+ pages/hub-gestionale.html                          |    2 [32m+[m[31m-[m
+ pages/wavegis.html                                 |    4 [32m+[m[31m-[m
+ .../10_contratto_incarico_servizi_digitali.pdf     |  Bin [31m0[m -> [32m92653[m bytes
+ tmp/commercial-kit-contract-qa-v2/page-1.png       |  Bin [31m0[m -> [32m311446[m bytes
+ tmp/commercial-kit-contract-qa-v2/page-2.png       |  Bin [31m0[m -> [32m361454[m bytes
+ tmp/commercial-kit-contract-qa-v2/page-3.png       |  Bin [31m0[m -> [32m376128[m bytes
+ tmp/commercial-kit-contract-qa-v2/page-4.png       |  Bin [31m0[m -> [32m136509[m bytes
+ .../10_contratto_incarico_servizi_digitali.pdf     |  Bin [31m0[m -> [32m93658[m bytes
+ tmp/commercial-kit-contract-qa/page-1.png          |  Bin [31m0[m -> [32m311446[m bytes
+ tmp/commercial-kit-contract-qa/page-2.png          |  Bin [31m0[m -> [32m94352[m bytes
+ tmp/commercial-kit-contract-qa/page-3.png          |  Bin [31m0[m -> [32m341338[m bytes
+ tmp/commercial-kit-contract-qa/page-4.png          |  Bin [31m0[m -> [32m347494[m bytes
+ tmp/commercial-kit-contract-qa/page-5.png          |  Bin [31m0[m -> [32m120539[m bytes
+ .../01_scheda_presentazione_va_digital.pdf         |  Bin [31m0[m -> [32m56475[m bytes
+ tmp/commercial-kit-header-pdf-final/page-1.png     |  Bin [31m0[m -> [32m174428[m bytes
+ .../01_scheda_presentazione_va_digital/page-1.png  |  Bin [31m0[m -> [32m174428[m bytes
+ .../02_modulo_requisiti_cliente/page-1.png         |  Bin [31m0[m -> [32m176500[m bytes
+ .../02_modulo_requisiti_cliente/page-2.png         |  Bin [31m0[m -> [32m120886[m bytes
+ .../03_preventivo_proposta_tecnica/page-1.png      |  Bin [31m0[m -> [32m190571[m bytes
+ .../03_preventivo_proposta_tecnica/page-2.png      |  Bin [31m0[m -> [32m79460[m bytes
+ .../04_avvio_progetto/page-1.png                   |  Bin [31m0[m -> [32m200258[m bytes
+ .../05_report_stato_lavori/page-1.png              |  Bin [31m0[m -> [32m179406[m bytes
+ .../06_consegna_collaudo/page-1.png                |  Bin [31m0[m -> [32m179100[m bytes
+ .../07_assistenza_manutenzione/page-1.png          |  Bin [31m0[m -> [32m195849[m bytes
+ .../08_carta_intestata_va_digital/page-1.png       |  Bin [31m0[m -> [32m106991[m bytes
+ tmp/commercial-kit-pdf-qa/presentazione/page-1.png |  Bin [31m0[m -> [32m54211[m bytes
+ tmp/commercial-kit-pdf-qa/presentazione/page-2.png |  Bin [31m0[m -> [32m61640[m bytes
+ tmp/commercial-kit-pdf-qa/presentazione/page-3.png |  Bin [31m0[m -> [32m65408[m bytes
+ tmp/commercial-kit-pdf-qa/presentazione/page-4.png |  Bin [31m0[m -> [32m61173[m bytes
+ tmp/commercial-kit-pdf-qa/presentazione/page-5.png |  Bin [31m0[m -> [32m55846[m bytes
+ tmp/commercial-kit-pdf-qa/scheda/page-1.png        |  Bin [31m0[m -> [32m126545[m bytes
+ .../02_modulo_requisiti_cliente.pdf                |  Bin [31m0[m -> [32m89797[m bytes
+ .../02_modulo_requisiti_cliente/page-1.png         |  Bin [31m0[m -> [32m176572[m bytes
+ .../02_modulo_requisiti_cliente/page-2.png         |  Bin [31m0[m -> [32m120973[m bytes
+ .../06_consegna_collaudo/06_consegna_collaudo.pdf  |  Bin [31m0[m -> [32m64218[m bytes
+ .../06_consegna_collaudo/page-1.png                |  Bin [31m0[m -> [32m179204[m bytes
+ .../06_consegna_collaudo/page-2.png                |  Bin [31m0[m -> [32m28887[m bytes
+ .../06_consegna_collaudo/06_consegna_collaudo.pdf  |  Bin [31m0[m -> [32m63469[m bytes
+ .../06_consegna_collaudo/page-1.png                |  Bin [31m0[m -> [32m179204[m bytes
+ .../01_scheda_presentazione_va_digital.pdf         |  Bin [31m0[m -> [32m56471[m bytes
+ .../01_scheda_presentazione_va_digital/page-1.png  |  Bin [31m0[m -> [32m174523[m bytes
+ .../02_modulo_requisiti_cliente.pdf                |  Bin [31m0[m -> [32m83060[m bytes
+ .../02_modulo_requisiti_cliente/page-1.png         |  Bin [31m0[m -> [32m176572[m bytes
+ .../02_modulo_requisiti_cliente/page-2.png         |  Bin [31m0[m -> [32m51338[m bytes
+ .../03_preventivo_proposta_tecnica.pdf             |  Bin [31m0[m -> [32m73356[m bytes
+ .../03_preventivo_proposta_tecnica/page-1.png      |  Bin [31m0[m -> [32m190659[m bytes
+ .../03_preventivo_proposta_tecnica/page-2.png      |  Bin [31m0[m -> [32m79539[m bytes
+ .../04_avvio_progetto/04_avvio_progetto.pdf        |  Bin [31m0[m -> [32m68773[m bytes
+ .../04_avvio_progetto/page-1.png                   |  Bin [31m0[m -> [32m200358[m bytes
+ .../05_report_stato_lavori.pdf                     |  Bin [31m0[m -> [32m70021[m bytes
+ .../05_report_stato_lavori/page-1.png              |  Bin [31m0[m -> [32m179506[m bytes
+ .../06_consegna_collaudo/06_consegna_collaudo.pdf  |  Bin [31m0[m -> [32m64082[m bytes
+ .../06_consegna_collaudo/page-1.png                |  Bin [31m0[m -> [32m179204[m bytes
+ .../06_consegna_collaudo/page-2.png                |  Bin [31m0[m -> [32m28887[m bytes
+ .../07_assistenza_manutenzione.pdf                 |  Bin [31m0[m -> [32m67205[m bytes
+ .../07_assistenza_manutenzione/page-1.png          |  Bin [31m0[m -> [32m195939[m bytes
+ .../08_carta_intestata_va_digital.pdf              |  Bin [31m0[m -> [32m45317[m bytes
+ .../08_carta_intestata_va_digital/page-1.png       |  Bin [31m0[m -> [32m107101[m bytes
+ tmp/pdfs/business-card-source.pdf                  |  487 [32m++++++++[m
+ tmp/pdfs/business-card-vertical-source.pdf         |  487 [32m++++++++[m
+ tmp/pdfs/review-current/card-1.png                 |  Bin [3
