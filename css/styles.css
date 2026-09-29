@@ -1439,73 +1439,32 @@ body.v3{background:var(--va-paper);color:var(--va-text)}
 @media(max-width:980px){.product-v3 .pv3-hero-grid{gap:28px}.pv3-wave-device{max-width:780px}.product-v3 .pv3-copy h1{font-size:48px}}
 @media(max-width:650px){.product-v3 .pv3-hero{padding-top:104px}.product-v3 .pv3-copy h1{font-size:39px}.pv3-wave-device{padding:8px;transform:none;border-radius:18px}.pv3-wave-brand{left:16px;top:16px;padding:6px 8px}.pv3-wave-brand>span{width:28px;height:28px}.pv3-wave-note{display:none}}
 
-/* 2026-09-29 — hero mockup dinamici: prospettiva e sovrapposizioni */
-.product-v3 .pv3-hero{overflow:hidden}
-.product-v3 .pv3-hero-grid{perspective:1500px}
+/* Mockup fedele Hub / WaveGIS */
+.mk-hero{padding:116px 0 34px;background:linear-gradient(135deg,#fff 0%,#f7fbff 67%,#edf7ff 100%);overflow:hidden}
+.mk-hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.mk-copy{min-width:0;position:relative;z-index:2}
+.mk-copy h1{margin:10px 0 20px;color:#082845;font-size:clamp(42px,3.8vw,62px);line-height:1.035;letter-spacing:-.045em}
+.mk-copy h1 em{color:#168ff0;font-style:normal}.mk-copy p{max-width:570px;margin:0;color:#526d85;font-size:16px;line-height:1.58}
+.mk-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:34px}
+.mk-benefits article{display:flex;align-items:center;gap:13px}.mk-benefits article>b{display:grid;flex:0 0 44px;height:44px;place-items:center;border-radius:11px;background:#e6f5ff;color:#168ff0;font-size:20px}.mk-benefits span{display:flex;flex-direction:column;gap:4px}.mk-benefits strong{color:#082845;font-size:13px}.mk-benefits small{color:#6b8195;font-size:10px}
 
-/* Hub: dashboard arretrata + agenda e KPI in primo piano */
-.product-v3 .pv3-device{
-  overflow:visible;
-  transform:perspective(1500px) rotateY(-7deg) rotateX(1.5deg) rotateZ(-1deg) translateY(-8px);
-  transform-origin:center center;
-  box-shadow:0 42px 90px rgba(8,40,69,.22);
-}
-.product-v3 .pv3-device>img{
-  width:91%;
-  margin-left:1%;
-  object-position:top left;
-  box-shadow:0 22px 48px rgba(8,40,69,.22)
-}
-.product-v3 .pv3-phone{
-  right:-3%;
-  bottom:-3%;
-  transform:rotateY(4deg) rotateZ(1.5deg);
-  box-shadow:0 28px 55px rgba(8,40,69,.32)
-}
-.product-v3 .pv3-float{
-  left:auto;
-  right:24%;
-  bottom:-5%;
-  transform:translateZ(45px) rotateZ(1deg);
-  z-index:4
-}
+/* Hub come nel mockup: monitor + telefono sovrapposto, senza invadere il testo */
+.mk-hub-visual{position:relative;height:410px;border-radius:30px;background:radial-gradient(circle at 78% 38%,#d7e7ea 0 19%,transparent 20%),linear-gradient(145deg,#f8fbfc,#edf5f7);box-shadow:0 28px 65px #08284518}
+.mk-hub-screen{position:absolute;left:4%;right:10%;top:7%;bottom:9%;overflow:hidden;border:9px solid #102c47;border-bottom-width:15px;border-radius:18px;background:#fff;box-shadow:0 24px 48px #0828452b}
+.mk-hub-screen:after{content:"";position:absolute;left:32%;right:32%;bottom:-15px;height:15px;border-radius:0 0 45% 45%;background:#b7c5cd}
+.mk-hub-screen img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.mk-hub-phone{position:absolute;z-index:3;right:1%;top:31%;width:27%;height:62%;padding:6px;border-radius:23px;background:#102c47;box-shadow:0 25px 46px #08284542}
+.mk-hub-phone:before{content:"";position:absolute;z-index:4;left:36%;top:3px;width:28%;height:8px;border-radius:0 0 7px 7px;background:#102c47}
+.mk-hub-phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:17px}
 
-/* WaveGIS: tavola cartografica inclinata, distinta dall'Hub */
-.product-v3 .pv3-wave-device{
-  overflow:visible;
-  padding:12px;
-  transform:perspective(1500px) rotateY(7deg) rotateX(2deg) rotateZ(1deg) translate(8px,-8px);
-  transform-origin:center center;
-  box-shadow:0 42px 90px rgba(8,40,69,.24)
-}
-.product-v3 .pv3-wave-device>img{
-  border-radius:17px;
-  box-shadow:0 18px 38px rgba(8,40,69,.16)
-}
-.product-v3 .pv3-wave-brand{
-  left:-18px;
-  top:28px;
-  transform:translateZ(50px) rotateZ(-1deg);
-  box-shadow:0 18px 35px rgba(8,40,69,.32)
-}
-.product-v3 .pv3-wave-note{
-  right:-12px;
-  bottom:25px;
-  transform:translateZ(40px);
-  box-shadow:0 15px 32px rgba(8,40,69,.2)
-}
+/* WaveGIS: stessa scala e posizione dell'Hub, ma visual GIS dedicato */
+.mk-wave-visual{height:410px;border-radius:30px;background:linear-gradient(145deg,#e8f5fb,#d7e9e9 45%,#c7ded4);box-shadow:0 28px 65px #08284518;padding:22px}
+.mk-wave-app{display:grid;grid-template-columns:108px 1fr;width:100%;height:100%;overflow:hidden;border-radius:18px;background:#fff;box-shadow:0 20px 42px #0828452a}
+.mk-wave-app aside{display:flex;flex-direction:column;padding:15px 10px;background:#082845;color:#fff}.mk-wave-app aside>b{display:grid;width:37px;height:37px;place-items:center;border-radius:9px;background:#168ff0;font-size:20px}.mk-wave-app aside>strong{margin-top:7px;font-size:16px}.mk-wave-app aside>small{margin-bottom:13px;color:#9db8cd;font-size:9px}.mk-wave-app aside>i{padding:7px 6px;border-radius:6px;font-size:9px;font-style:normal}.mk-wave-app aside>i.active{background:#168ff0}
+.mk-map{position:relative;overflow:hidden}.mk-map>img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.02)}
+.mk-tools{position:absolute;top:10px;right:10px;display:flex;gap:5px}.mk-tools b{display:grid;width:31px;height:31px;place-items:center;border-radius:7px;background:#fff;color:#168ff0;box-shadow:0 5px 13px #08284522;font-size:13px}
+.mk-layers{position:absolute;left:16px;top:16px;width:175px;padding:13px;border-radius:12px;background:#fffffff0;box-shadow:0 12px 26px #08284524}.mk-layers h3,.mk-popup h3{margin:0 0 8px;color:#082845;font-size:13px}.mk-layers span{display:flex;align-items:center;gap:6px;padding:5px 0;border-top:1px solid #e6eef4;color:#4b657b;font-size:8px}.mk-layers span i{width:5px;height:17px;border-radius:3px;background:#168ff0}.mk-layers span:nth-of-type(2) i{background:#f39a27}.mk-layers span:nth-of-type(3) i{background:#2fab74}.mk-layers span:nth-of-type(4) i{background:#7465db}.mk-layers span:nth-of-type(5) i{background:#e95359}
+.mk-popup{position:absolute;right:4%;top:40%;display:flex;width:175px;flex-direction:column;gap:7px;padding:14px;border-radius:12px;background:#fff;box-shadow:0 16px 34px #08284530}.mk-popup span{display:flex;justify-content:space-between;color:#6c8295;font-size:8px}.mk-popup span b{color:#082845}.mk-popup small{color:#168ff0;font-size:8px}.mk-bases{position:absolute;right:9px;bottom:9px;display:flex;gap:5px}.mk-bases span{padding:6px 7px;border-radius:6px;background:#fff;box-shadow:0 4px 12px #08284522;color:#173d5d;font-size:7px}
 
-@media(max-width:980px){
-  .product-v3 .pv3-device,
-  .product-v3 .pv3-wave-device{transform:none;max-width:820px;margin-inline:auto}
-  .product-v3 .pv3-phone{right:1%;bottom:1%;transform:none}
-  .product-v3 .pv3-float{right:24%;bottom:0;transform:none}
-  .product-v3 .pv3-wave-brand{left:24px;top:24px;transform:none}
-  .product-v3 .pv3-wave-note{right:22px;bottom:22px;transform:none}
-}
-@media(max-width:650px){
-  .product-v3 .pv3-device{overflow:hidden}
-  .product-v3 .pv3-device>img{width:100%;margin:0}
-  .product-v3 .pv3-wave-device{overflow:hidden}
-  .product-v3 .pv3-wave-brand{left:16px;top:16px}
-}
+@media(max-width:980px){.mk-hero-grid{grid-template-columns:1fr;gap:30px}.mk-copy h1{max-width:760px}.mk-hub-visual,.mk-wave-visual{width:min(100%,780px);margin-inline:auto}.mk-benefits{gap:14px}}
+@media(max-width:650px){.mk-hero{padding-top:104px}.mk-copy h1{font-size:39px}.mk-benefits{grid-template-columns:1fr}.mk-hub-visual,.mk-wave-visual{height:330px}.mk-hub-phone{width:29%;height:59%;top:34%}.mk-wave-visual{padding:10px}.mk-wave-app{grid-template-columns:68px 1fr}.mk-wave-app aside{padding:9px 6px}.mk-wave-app aside>strong{font-size:11px}.mk-wave-app aside>small,.mk-wave-app aside>i:not(.active){display:none}.mk-layers{left:8px;top:8px;width:135px;padding:8px}.mk-layers h3{font-size:10px}.mk-layers span{font-size:7px;padding:3px 0}.mk-popup{right:7px;top:auto;bottom:36px;width:130px;padding:8px}.mk-popup h3{font-size:10px}.mk-tools b:nth-child(n+4),.mk-bases{display:none}}
